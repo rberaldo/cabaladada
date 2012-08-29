@@ -1,0 +1,5 @@
+auto: false
+markdown: rdiscount
+permalink: /:year/:title
+lsi: true
+pygments: true

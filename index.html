@@ -1,0 +1,16 @@
+---
+layout: default
+title: cabaladadá
+---
+
+<div id="container">
+  <p><strong>Last 5+3 posts:</strong></p>
+{% for post in site.posts limit:8 %}
+<h2><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a></h2>
+<em style="font-size: 9pt;">Posted on {{ post.date | date_to_long_string }} by {{ post.author }}</em>
+<p>{{ post.excerpt }}</p>
+<p style="text-align: center;">~~~~~~~~~~~~~~~~~~~~~~~~~~~<p>
+{% endfor  %}
+
+See older posts on <a href="/blog.html">/blog</a>.
+</div>

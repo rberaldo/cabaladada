@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+
+  <!-- Piwik -->
+  <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "http://www.cabaladada.org/analytics/" : "http://www.cabaladada.org/analytics/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+  </script><noscript><p><img src="http://www.cabaladada.org/analytics/piwik.php?idsite=1" style="border:0" alt=""/></p></noscript>
+  <!-- End Piwik Tag -->
+
+  <body>
+
+    <header>
+      <h1>{{ page.title }}</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/blog.html">blog</a></li>
+        <li><a href="/projects.html">projects</a></li>
+        <li><a href="/about.html">about</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <div style="font-size: 9pt">
+        <em>by {{ page.author }}</em>
+      </div>
+
+      {{ content }}
+
+    </article>
+
+    <footer>
+      <hr />
+      <p>&copy; Cabaladadá, 2012. Last update on {{ site.time | date_to_string }}.</p>
+
+      <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC</a> | <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.cabaladada.org%2F">HTML5</a>
+    </footer>
+
+  </body>
+
+</html>
+<!-- vim: set tw=0: -->

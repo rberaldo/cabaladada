@@ -1,0 +1,135 @@
+/* General settings */
+body {
+  position: relative;
+  margin: 0 auto;
+  width: 768px;
+  font-family: Inconsolata-g,Inconsolata,"Envy Code R",monofur,monospace;
+  background-color:#161616;
+  color:#1FE600;
+  font-size: 11pt;
+}
+
+a {
+  color:#CD0000;
+  text-decoration:none;
+  transition: background-color .6s;
+  -webkit-transition: background-color .6s; /* Safari and Chrome */
+  -moz-transition: background-color .6s; /* Firefox 4 */
+  -o-transition: background-color .6s; /* Opera */
+}
+
+hr {
+  color: #1FE600;
+  background-color: #1FE600;
+  border-color: #1FE600;
+}
+
+a:hover {
+  background-color:#440000;
+}
+
+h2 {
+  font-size: 20pt;
+  line-height: 22pt;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Codes */
+pre {
+  font-size: 9pt;
+  line-height: 11pt;
+  background: black;
+  padding: 5px;
+  white-space: pre-wrap; 
+  border-color: #1FE600;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Page title */
+
+h1 {
+  font-size: 32pt;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  width: 128px;
+  margin-right: 16px;
+}
+
+nav ul {
+  border: none;
+  list-style: none;
+  padding: 0;
+  text-transform: lowercase;
+  text-align:right;
+  font-weight: bold;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* A container */
+#container {
+  min-height: 128px;
+  width: 624px;
+  float: right;
+  display: block;
+}
+
+/* Footer */
+footer {
+  font-size: 9pt;
+  clear: both;
+  margin-top: 32px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Articles */
+article {
+  display: block;
+  width: 624px;
+  float: right;
+  text-align: justify;
+}
+
+article img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* img */
+
+img.center {
+  display: block;
+  margin: 0 auto;
+  margin: 8px;
+}
+
+img.left {
+  display: block;
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+img.right {
+  display: block;
+  float: right;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+/* Custom styles */
+/* (nothing for now) */
