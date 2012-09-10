@@ -2,7 +2,7 @@
 layout: post
 title: "LaTeX: Acentos em fórmulas"
 author: Rafael Beraldo
-excerpt: "No qual ajudo meus amigos usuário de LaTeX com um problema pequeno, mas chatinho."
+excerpt: "No qual ajudo meus amigos usuários de LaTeX com um problema pequeno, mas chatinho."
 ---
 
 Essa é uma breve dica pra quem tem ou teve problemas para escrever fórmulas que
