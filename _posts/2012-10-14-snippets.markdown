@@ -18,7 +18,7 @@ de usar plugins. Recentemente ouvi um podcast na Hacker Public Radio sobre
 Eu não _era_ um grande fã de plugins. O snipMate é realmente uma mão na roda,
 especialmente pra quem usa muito LaTeX, como eu. Mas vamos direto ao assunto.
 
-### Instalando o snipMate
+## Instalando o snipMate
 
 A melhor forma de instalar o snipMate é clonando o repositório do GitHub:
 
@@ -30,7 +30,7 @@ Isso irá copiar os arquivos `README.markdown` e `plugin-info.txt`, então não 
 esqueça de deletá-los. Pronto, o snipMate está instalado! Para instalar os
 arquivos de ajuda, basta rodar `:helptags ~/.vim/doc` dentro do vim.
 
-### Usando snippets
+## Usando snippets
 
 Os snippets ficam guardados em `~/.vim/snippets`. A sintaxe deles é simples
 (mais sobre isso abaixo), e é uma boa ideia dar uma olhada nos arquivos padrões
@@ -45,7 +45,7 @@ Editando um HTML, você pode digitar `div<tab>`, e `div` será expandido para:
 Onde `1` e `2` representam a primeira e segunda posições do cursor. Você pode
 mover entre essas posições usando a tecla `<tab>`. 
 
-### Sintaxe dos snippets
+## Sintaxe dos snippets
 
 Os snippets são definidos assim:
 
@@ -99,7 +99,7 @@ de digitar ou copiar/colar!
 Após escrever um novo snippet, é necessário rodar `:call ReloadAllSnippets()`
 ou reiniciar o vim.
 
-### gedit
+## gedit
 
 O fantástico gedit vem com um plugin muito parecido por padrão. Vejam [esse post
 no ubuntu-br-sc][ubuntu-br-sc] para mais informações. A sintaxe é idêntica ou
