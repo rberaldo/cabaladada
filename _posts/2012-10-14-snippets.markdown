@@ -1,0 +1,109 @@
+---
+layout: post
+title: "Snippets"
+author: Rafael Beraldo
+excerpt: "Um pouco sobre plugins para o vim e gedit! Plugins para editores de texto podem tornar nossas vidas muito mais fáceis, então confira esse post."
+---
+
+Eu nunca fui um grande fã de modificar o funcionamento dos programas por meio de
+plugins (especialmente porque isso pode levar a problemas de performance, além
+de bugs inesperados), então nunca me impressionei muito com a capacidade do vim
+de usar plugins. Recentemente ouvi um podcast na Hacker Public Radio sobre
+[plugins para o vim][hpr-podcast] e resolvi dar uma chance a um plugin chamado
+[snipMate][snipmate].
+
+[hpr-podcast]: http://hackerpublicradio.org/eps.php?id=1091
+[snipmate]: http://www.vim.org/scripts/script.php?script_id=2540
+
+Eu não _era_ um grande fã de plugins. O snipMate é realmente uma mão na roda,
+especialmente pra quem usa muito LaTeX, como eu. Mas vamos direto ao assunto.
+
+### Instalando o snipMate
+
+A melhor forma de instalar o snipMate é clonando o repositório do GitHub:
+
+    git clone git://github.com/msanders/snipmate.vim.git
+    cd snipmate.vim
+    cp -R * ~/.vim
+
+Isso irá copiar os arquivos `README.markdown` e `plugin-info.txt`, então não se
+esqueça de deletá-los. Pronto, o snipMate está instalado! Para instalar os
+arquivos de ajuda, basta rodar `:helptags ~/.vim/doc` dentro do vim.
+
+### Usando snippets
+
+Os snippets ficam guardados em `~/.vim/snippets`. A sintaxe deles é simples
+(mais sobre isso abaixo), e é uma boa ideia dar uma olhada nos arquivos padrões
+para entender o que está acontecendo.
+
+Editando um HTML, você pode digitar `div<tab>`, e `div` será expandido para:
+
+    <div id="1">
+      2
+    </div>
+
+Onde `1` e `2` representam a primeira e segunda posições do cursor. Você pode
+mover entre essas posições usando a tecla `<tab>`. 
+
+### Sintaxe dos snippets
+
+Os snippets são definidos assim:
+
+    snippet nome
+            texto expandido
+            mais texto expandido
+
+Portanto, quando você digitar `nome<tab>`, o texto expandido aparecerá
+automaticamente onde estava o cursor. 
+
+Para quem escreve muito em LaTeX, é possível criar algo como
+
+    snippet article
+            \documentclass[${1}]{article}
+
+onde esse `${1}` indica a primeira posição do cursor. Você pode especificar as
+opções da classe ali. Mas digamos que eu queira algo mais complexo, como:
+
+    snippet beginfig
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width=.7\textwidth]{${1:filename}}
+              \caption{${2}}
+              \label{${3}}
+            \end{figure}
+
+Ali temos três posições do cursor, mas eu gosto de manter a `label` das minhas
+figuras igual ao nome do arquivo. Podemos usar um pouco da mágica do snipMate e:
+
+    snippet beginfig
+            \begin{figure}[h]
+              \centering
+              \includegraphics[width=.7\textwidth]{${1:filename}}
+              \caption{${2}}
+              \label{$1}
+            \end{figure}
+
+O `$1` depois de `\label` significa que todo o texto colocado sob
+`${1:filename}` será replicado ali. Muito útil, especialmente para abrir e
+fechar tags HTML e ambientes no LaTeX:
+
+    snippet begin
+            \begin{${1:env}}
+              ${2}
+            \end{$1}
+
+Você também pode criar snippets para textos que repete com frequência, e mesmo
+deixar espaços em branco para aquelas partes do texto que são variáveis. Chega
+de digitar ou copiar/colar!
+
+Após escrever um novo snippet, é necessário rodar `:call ReloadAllSnippets()`
+ou reiniciar o vim.
+
+### gedit
+
+O fantástico gedit vem com um plugin muito parecido por padrão. Vejam [esse post
+no ubuntu-br-sc][ubuntu-br-sc] para mais informações. A sintaxe é idêntica ou
+muito parecida com a sintaxe acima, mas tem uma interface gráfica legal para
+você gerenciar seus snippets.
+
+[ubuntu-br-sc]: http://www.ubuntubrsc.com/dica-rapida-ativando-snippets-no-gedit.html
