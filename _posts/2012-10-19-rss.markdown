@@ -1,0 +1,13 @@
+---
+layout: post
+title: "RSS"
+author: Rafael Beraldo
+excerpt: "We have RSS!"
+---
+
+Thanks to citizenparker's [Incrediblog source code][incrediblog], I was able to
+add [an RSS feed][rss] to this very blog. Subscribe using your favorite RSS
+reader and I promise you'll never miss a rant!
+
+[incrediblog]: https://github.com/citizenparker/incrediblog
+[rss]: /rss.xml
