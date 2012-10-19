@@ -25,7 +25,7 @@ centralizadas. Mas o que aconteceria com todas as suas fotos se o Flickr
 sumisse? E com os seus vídeos, se o YouTube deixasse de existir?
 
 <video
-width="640"
+width="624"
 height="360"
 controls="controls"
 preload="metadata"
