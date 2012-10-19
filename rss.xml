@@ -10,14 +10,14 @@ layout: nil
     <atom:link href="http://www.cabaladada.org/rss.xml" rel="self" type="application/rss+xml" />
     <description>Rafael Beraldo's rants</description>
     <language>en-us</language>
-    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
-    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</lastBuildDate>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y" }}</lastBuildDate>
 
     {% for post in site.posts %}
       <item>
         <title>{{ post.title }}</title>
         <link>http://cabaladada.org{{ post.url }}</link>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y" }}</pubDate>
         <author>Rafael Beraldo</author>
         <guid>http://www.cabaladada.org{{ post.url }}</guid>
         <description>{{ post.content | xml_escape }}</description>
