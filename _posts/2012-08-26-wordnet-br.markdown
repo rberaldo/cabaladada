@@ -3,6 +3,7 @@ layout: post
 title: "WordNet.Br"
 author: Rafael Beraldo
 excerpt: "No qual discuto meu envolvimento com o projeto WordNet.Br, e alguns pontos sobre a base da WordNet."
+published: false
 ---
 
 Esse é um momento particularmente bom para discutir a WordNet.Br. Mais sobre
