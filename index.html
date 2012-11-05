@@ -6,7 +6,17 @@ title: cabaladadá
 <div id="container">
   <p><strong>Last 5+3 posts:</strong></p>
 {% for post in site.posts limit:8 %}
+
+{% if post.multilingual != true %}
 <h2><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a></h2>
+{% elsif post.multilingual == true %}
+{% if post.lang == 'en' %}
+<h2><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a></h2><div class="multilang">(também em <a href="{{ post.url }}.pt-br">português</a>)</div>
+{% elsif post.lang == 'pt-br' %}
+<h2><a href="{{ post.url }}"><strong>{{ post.title }}</strong></a><div class="multilang">(also in <a href="{{ post.url }}.en">English</a>)</div></h2>
+{% endif %}
+{% endif %}
+
 <em style="font-size: 9pt;">Posted on {{ post.date | date_to_long_string }} by {{ post.author }}</em>
 <p>{{ post.excerpt }}</p>
 <p style="text-align: center;">~~~~~~~~~~~~~~~~~~~~~~~~~~~<p>

@@ -87,6 +87,11 @@ nav ul li a {
   display: block;
 }
 
+
+.multilang {
+  font-size: 9pt;
+}
+
 /* Footer */
 footer {
   font-size: 9pt;
