@@ -1,0 +1,24 @@
+---
+layout: post
+title: "News"
+author: Rafael Beraldo
+excerpt: "The code for Cabaladadá is now up on GitHub. Go and grab it!"
+---
+
+I've just uploaded the source code for this blog to [GitHub][github], where I
+keep the fews lines of code I write and some stuff written in LaTeX. So, if you
+were ever wondering how I went about implementing Cabaladadá using Jekyll, go
+and have a check!
+
+I'm also working on internationalizing Cabaladadá. Sometimes (like now), I'd
+like to write a post in both English and Brazilian Portuguese but I see no need
+to create separate pages for each language. The solution I'm working on is
+rather simple: I'll just include a link to the translation of a post beneath
+its title on the front page and on the post page, before the text begins.
+
+I'm having some trouble figuring out where to put the translations and how to
+tell Jekyll not to include them on the main page.
+
+Oh, and there'll soon be a post on Vimperator and Firefox!
+
+[github]: https://github.com/rberaldo/cabaladada
