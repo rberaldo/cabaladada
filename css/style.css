@@ -131,5 +131,9 @@ img.right {
   margin-bottom: 8px;
 }
 
+img {
+  max-width: 624px;
+}
+
 /* Custom styles */
 /* (nothing for now) */
