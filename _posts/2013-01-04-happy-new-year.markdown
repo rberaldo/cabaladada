@@ -22,7 +22,7 @@ people want read Cabaladadá. That simply means my posts should be about
 whatever is bugging me at the moment, or whatever I'm doing with my life, the
 Universe and everything else. I'd like to write more on cooking and using
 GNU/Linux, for example. I often discover programs, fonts, podcasts, books and
-many other things that maybe interesting for my fellow hackers and nerds.
+many other things that might be interesting for my fellow hackers and nerds.
 
 This new year will be full of new and exciting challenges. I taught English for
 one year and a half, and now I'm looking for a new job. Maybe I'll end up
