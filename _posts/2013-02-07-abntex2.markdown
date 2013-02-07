@@ -1,0 +1,50 @@
+---
+layout: post
+title: "abnTeX2"
+author: "Rafael Beraldo"
+excerpt: "Onde apresento brevemente o novo pacote que oferece suporte às normas da ABNT para o LaTeX."
+---
+
+Como estudante em uma universidade brasileira, sou eternamente grato ao
+[LaTeX][latex] pela ajuda com a tipografia dos meus trabalhos e relatórios e ao
+(finado) projeto [abnTeX][abntex] pela ajuda com as normas para trabalhos
+científicos da [ABNT][abnt].
+
+O projeto abnTeX (_ABsurd Norms for TeX_) não recebia contribuições ao código
+desde 2006, no entanto, o que o tornava desatualizado em relação às normas da
+ABNT. Além disso, o código tinha alguns bugs e incompatibilidades com outros
+pacotes. 
+
+Por isso, foi com grande felicidade que descobri o projeto [abnTeX2][abntex2],
+liderado pelo [Lauro César][lcesar], da UnB. O novo pacote para LaTeX é baseado
+na classe `memoir`, a minha preferida, e uma das classes mais completas para o
+LaTeX.
+
+![Logo do abnTeX2](/images/marca_abntex-2.png "Logo do abnTeX2")
+
+Para instalar o pacote no Arch Linux usando o `yaourt`, rode:
+
+    yaourt -S abntex2
+
+Para mais informações sobre como instalar na sua distro, [consulte a wiki do
+projeto abnTeX2][wiki-instalacao].
+
+Li brevemente o [manual do pacote][abntex2-manual], que é bastante completo, e
+notei algumas mudanças em relação ao antigo pacote `abntex`. Muitas novidades
+que eu esperava estão lá, incluindo suporte ao XeLaTeX (e `fontspec`),
+ambientes para errata e ficha catalográfica e a nova posição para rótulos e
+legendas.
+
+Irei testar o pacote durante esse ano letivo para tipografar trabalhos meus e
+de colegas. Posso até, eventualmente, publicar aqui um pequeno tutorial sobre o
+pacote, incluindo hacks que descobrir ou desenvolver.
+
+_Happy LaTeXing!_
+
+[latex]: http://www.latex-project.org/
+[abntex]: http://sourceforge.net/projects/abntex/
+[abntex2]: https://code.google.com/p/abntex2/
+[abnt]: http://www.abnt.org.br/
+[lcesar]: http://laurocesar.com/
+[wiki-instalacao]: https://code.google.com/p/abntex2/wiki/Instalacao
+[abntex2-manual]: http://mirrors.ctan.org/macros/latex/contrib/abntex2/doc/abntex2.pdf
