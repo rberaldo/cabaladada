@@ -44,8 +44,13 @@ pre {
   line-height: 11pt;
   padding: 5px;
   white-space: pre-wrap; 
-  background: black;
-  color: white;
+  background: #3f3f3f;
+  color: #ffffff;
+}
+
+code {
+  background: #3f3f3f;
+  color: #ffffff;
 }
 
 /* Page title */
