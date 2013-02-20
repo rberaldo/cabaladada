@@ -42,12 +42,10 @@ h2 {
 pre {
   font-size: 9pt;
   line-height: 11pt;
-  background: black;
   padding: 5px;
   white-space: pre-wrap; 
-  border-color: #1FE600;
-  border-style: solid;
-  border-width: 1px;
+  background: black;
+  color: white;
 }
 
 /* Page title */
