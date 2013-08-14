@@ -1,4 +1,3 @@
-auto: false
 markdown: rdiscount
 permalink: /:year/:title
 lsi: false
