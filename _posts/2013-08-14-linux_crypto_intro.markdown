@@ -46,7 +46,7 @@ Cobrirei os seguintes tópicos:
 Se você já conhece sobre um tópico específico, sinta-se livre para pular para
 os outros artigos.
 
-[linux_crypto]:ahttp://blog.sanctum.geek.nz/series/linux-crypto/
+[linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
 [gnupg_intro]: #
 [gnupg_uso]: #
