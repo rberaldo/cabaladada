@@ -44,12 +44,13 @@ pre {
   line-height: 11pt;
   padding: 5px;
   white-space: pre-wrap; 
-  background: #3f3f3f;
   color: #ffffff;
+  border-style: dashed;
+  border-color: #1FE600;
+  border-width: 1px;
 }
 
 code {
-  background: #3f3f3f;
   color: #ffffff;
 }
 
