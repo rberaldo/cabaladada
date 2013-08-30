@@ -2,7 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Introdução"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt: "No qual apresento uma tradução do texto “Linux Crypto: Introduction” de Tom Ryder.  A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo"
+excerpt: "No qual apresento uma tradução do texto “Linux Crypto: Introduction” de Tom Ryder. A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo."
 ---
 
 Essa é uma série de posts que será publicada em dez partes, traduzindo o
