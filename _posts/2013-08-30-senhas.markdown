@@ -1,0 +1,110 @@
+---
+layout: post
+title: "Criptografia no Linux: Senhas"
+author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
+excerpt:
+---
+
+Essa é o sexto post de uma série de dez posts traduzindo o original de Tom
+Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
+Commons 3.0][cc].
+
+Para a lista de posts, veja a [introdução][linux_crypto_intro].
+
+---
+
+É cada vez mais amplamente conhecido que o uso de senhas previsíveis ou o uso
+da mesma senha para mais de uma conta é um sério risco de segurança, pois um
+invasor pode tomar controle de uma conta (como um email) e causar uma série de
+prejuízos. Se um invasor conseguir o hash de sua senha para algum serviço na web,
+você quer ter certeza de que o hash é muito difícil de reverter e, mesmo que
+ele possa ser revertido, é exclusivo o bastante para não dar ao invasor acesso
+a qualquer outra de suas contas.
+
+Essa crescente percepção contribuiu com a popularidade dos **gerenciadores de
+senhas**, ferramentas projetadas para gerar, armazenar e recuperar senhas de
+forma segura, criptografadas com uma senha ou palavra passe mestra. Em alguns
+casos, como com o[KeePass][keepass], os dados são armazenados localmente; em
+outros, como com o [LastPass][lastpass], são armazenados em um serviço da web.
+Ambas são boas ferramentas e funcionam bem no Linux. Pessoalmente, tenho
+algumas reservas quanto o LastPass, já que não quero minhas senhas armazenadas
+em um serviço de terceiros, além de [não confiar na criptografia com o
+JavaScript][javascript_crypto].
+
+Curiosamente, por que nós agora temos uma configuração cuidadosa do GnuPG para
+lidar com a criptografia sozinhos, outra opção é a ferramenta [`pass(1)][pass],
+que se autoproclama “o gerenciador de senhas padrão do UNIX”.  Ela não passa de
+um shell script e algumas completações para o `bash(1)` baseados em ferramentas
+existentes como o [`git(1)`][git], o [`gpg2(1)`][gpg2], o  [`pwgen(1)`][pwgen],
+o [`tree(1)`][tree], o [`xclip(1)`][xclip] e seu `$EDITOR` de escolha. Se você
+ainda não investiu em um método de gerenciamento de senhas existente, essa pode
+ser uma boa aplicação inicial para o seu sistema de criptografia e uma ótima
+abordagem minimalista para o armazenamento seguro de senhas a partir da linha
+de comando (e, portanto, SSH).
+
+Em sistemas derivados do Debian, a ferramenta está disponível como parte do pacote `pass`:
+
+    # apt-get install pass
+
+Ele inclui um manual:
+
+    $ man pass
+
+Instruções para a instalação em outros sistemas operacionais estão disponíveis
+no site do projeto. Outras versões também estão disponíveis para o download,
+bem como um link para o repositório de desenvolvimento. Caso deseje utilizar o
+programa, certifique-se que as outras ferramentas necessárias citadas acimas
+estão instaladas, embora o `xclip(1)` seja necessário apenas se você utilizar o
+sistema X Windows.
+
+## Instalação
+
+Podemos obter um panorama geral do `pass(1)` invocando-o sem argumentos:
+
+    $ pass
+
+Para começar, iremos inicializar nosso armazenamento de senhas. Para nossas
+próprias senhas, é necessário rodar o comando como o seu usuário e não como
+root. Uma vez que o `pass(1)` usa o GnuPG para a criptografia, também
+precisaremos informá-lo a ID da chave apropriada que ele deve utilizar.
+Lembre-se que você pode encontrar esse código hexadecimal de oito dígitos
+digitando `gpg --list-secret-keys`. Uma sequência de texto exclusiva que
+identifique sua chave privada, como o seu nome ou endereço de email, também
+pode funcionar.
+
+    $ pass init 0x1FC2985D
+    mkdir: created directory ‘/home/tim/.password-store’
+    Password store initialized for 0x1FC2985D.
+
+Notamos que, de fato, o diretório `~/.password-store` foi criado, embora no
+momento esteja vazio exceto pelo arquivo `.gpg-id`, que mantém um registro da
+ID de nossa chave:
+
+    $ find .password-store
+    .password-store
+    .password-store/.gpg-id
+
+## Inserindo senhas
+
+## Gerando senhas
+
+## Recuperando senhas
+
+## Deletando senhas
+
+## Controle de versão
+
+## Backups
+
+[linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
+[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
+[linux_crypto_intro]: #
+[keepass]: http://keepass.com/
+[lastpass]: https://lastpass.com/
+[javascript_crypto]: http://www.matasano.com/articles/javascript-cryptography/
+[pass]: http://zx2c4.com/projects/password-store/
+[git]: http://linux.die.net/man/1/git
+[gpg2]: http://linux.die.net/man/1/gpg2
+[pwgen]: http://linux.die.net/man/1/pwgen
+[tree]: http://linux.die.net/man/1/tree
+[xclip]: http://linux.die.net/man/1/xclip
