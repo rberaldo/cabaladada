@@ -51,7 +51,7 @@ os outros artigos.
 [gnupg_intro]: #
 [gnupg_uso]: #
 [ssh_chaves]: #
-[agents]: #
+[agentes]: #
 [pass]: #
 [mutt]: #
 [duplicity]: #
