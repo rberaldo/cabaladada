@@ -217,18 +217,19 @@ configurar a opção `crypt_autosign`:
 
     set crypt_autosign = yes
 
-The first batch of options we set earlier will already automatically sign
-and/or encrypt messages in responses to messages doing either/both.
+O primeiro conjunto de opções que configuramos anteriormente irá assinar e/ou
+criptografar mensagens automaticamente, em respostas para mensagens assinadas,
+criptografados ou ambos.
 
-If you’d like to include a link to your PGP key in the headers to each message,
-you can add a custom header with `my_hdr`:
+Se você desejar incluir um link para a sua chave PGP nos cabeçalhos das
+mensagens, é possível adicionar uma header personalizada com a opção `my_hdr`:
 
     my_hdr X-PGP-Key: http://static.sanctum.geek.nz/thomas-ryder.asc
 
-All of this combines with Mutt’s extensive speed and high-powered configuration
-to make Mutt a very capable and convenient PGP mail client. As always, the more
-people you know using PGP, and the more public keys you have, the more useful
-this will be.
+Todos esses aspectos, combinados com a rapidez e a configuração poderosa do
+Mutt, o tornam um cliente de email PGP conveniente e muito capaz. Como sempre,
+quanto mais pessoas que você conhecer utilizarem o PGP, e quanto mais chaves
+públicas você tiver, mais útil ele será.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
