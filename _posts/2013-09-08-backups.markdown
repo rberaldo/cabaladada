@@ -1,0 +1,194 @@
+---
+layout: post
+title: "Criptografia no Linux: Backups"
+author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
+excerpt:
+---
+
+Essa é o oitavo post de uma série de dez posts traduzindo o original de Tom
+Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
+Commons 3.0][cc].
+
+Para a lista de posts, veja a [introdução][linux_crypto_intro].
+
+---
+
+Embora possuir backups locais para a recuperação rápida de dados seja
+importante, tal como em um disco USB ou num disco rígido vago, é igualmente
+importante ter um backup externo, a partir do qual você possa restaurar seus
+documentos importantes se, por exemplo, o seu escritório foi roubado ou pegar
+fogo e você perder tanto seu computador quanto o seu meio de backup.
+
+Para a maior parte das pessoas, a maneira mais fácil de fazê-lo é com um
+provedor de armazenamento, que ofereça acesso a armazenamento em massa de
+tamanho adequado, mantido nos sistemas de outras companhia, por um preço
+relativamente modesto ou mesmo de graça, como o [Ubuntu One][ubuntu_one] ou o
+[Skydrive][skydrive], da Microsoft. Os melhores provedores também criptografam
+os dados em seus servidores, não importando se eles tem acesso aos dados ou
+não.
+
+Mas confiar todos os seus dados e a criptografia dos mesmos a uma companhia é
+arriscado, particularmente após as recentes revelações de um [conluio
+corporativo com a NSA][conluio_nsa], e usuários preocupados com sua privacidade
+devem preferir a segurança de criptografar seus backups antes de serem enviados
+aos servidores. O provedor pode implementar seus próprios mecanismos de
+criptografia simétrica e/ou fechada, que podem ou não ser confiáveis. Como
+estabelecido, para uma criptografia pessoal muito forte, podemos usar nossa
+instalação do GnuPG para criptografar arquivos antes de enviá-los:
+
+    $ tar -cf backup_docs-"$(date +%Y-%m-%d)".tar $HOME/Documentos
+    $ gpg --encrypt backup_docs-2013-07-27.tar
+    $ scp backup_docs-2013-07-27.tar.gpg usuario@backup.examplo.com.br:backup_docs
+
+O problema de criptografar arquivos inteiros antes de copiá-los ao servidor de
+armazenamento é que mesmo para dados de tamanho modesto, realizar backups
+completos e fazer upload de todos os arquivos juntos, todas as vezes, pode
+custar muita banda. Da mesma forma, gostaríamos de ser capazes de restaurar
+nossos arquivos tal como eram num dia específico, para o caso de backups que
+não funcionem ou arquivos deletados acidentalmente, porém sem armazenar todos
+os arquivos em todos os dias de backup, o que pode acabar requerendo espaço
+demais.
+
+## Backups incrementais
+
+Normalmente, a solução é usar um sistema de backup incremental, o que significa
+que, após o upload inicial de seus arquivos em sua totalidade ao sistema de
+backup, os backups sucessivos fazem o upload _apenas das mudanças_,
+arquivando-as num formato recuperável e com um aproveitamento de espaço
+eficiente. Sistemas como o [Dirvish][dirvish], uma interface escrita em Perl
+para o `rsync(1)`, permitem isso.
+
+Infelizmente, o Dirvish não nem criptografa os arquivos, nem o conjunto de
+alterações que ele armazena. Precisamos de uma solução de backup incremental
+que calcule e armazene eficientemente as mudanças nos arquivos num servidor
+remoto e que também os criptografe. O [Duplicity][duplicity], uma ferramenta
+escrita em Python e construída sob a biblioteca `librsync` se destaca nessa
+tarefa. Ele pode usar nossa configuração de chave assimétrica do GnuPG para a
+criptografia dos arquivos e está disponível em sistemas derivados do Debian no
+pacote [`duplicity`][duplicity_pkg].
+
+## Uso
+
+Podemos ter uma ideia de como o [`duplicity(1)`][duplicity_man] funciona
+pedindo que ele inicie um backup em nossa máquina local. Ele utiliza quase os
+mesmo argumentos de fonte e destino que ferramentas como o `rsync` ou o `scp`:
+
+    $ cd
+    $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos file://backup_docs
+
+É importante especificar a opção `--encrypt-key`, pois de outro modo o
+`duplicity(1)` utilizará a criptografia simétrica com senha ao invés da chave
+pública, que é consideravelmente menos segura. Indique o endereço de e-mail que
+corresponde ao par de chaves que você deseja utilizar para a criptografia.
+
+O comando acima realiza o backup completo e criptografado do diretório,
+retornando a seguinte saída:
+
+    Os metadados remotos e locais estão sincronizados; nenhuma sincronização é necessária.
+    Data da última cópia de segurança completa: nenhuma
+    Não encontrou assinaturas, a mudança para backup completo.
+    --------------[ Estatísticas de backup ]--------------
+    StartTime 1374903081.74 (Sat Jul 27 17:31:21 2013)
+    EndTime 1374903081.75 (Sat Jul 27 17:31:21 2013)
+    ElapsedTime 0.01 (0.01 seconds)
+    SourceFiles 4
+    SourceFileSize 142251 (139 KB)
+    NewFiles 4
+    NewFileSize 142251 (139 KB)
+    DeletedFiles 0
+    ChangedFiles 0
+    ChangedFileSize 0 (0 bytes)
+    ChangedDeltaSize 0 (0 bytes)
+    DeltaEntries 4
+    RawDeltaSize 138155 (135 KB)
+    TotalDestinationSizeChange 138461 (135 KB)
+    Errors 0
+    -------------------------------------------------------
+
+Você poderá notar que sua senha não é requerida. Lembre-se que para
+criptografar arquivos, a chave pública não requer uma senha; a ideia geral é
+que qualquer um possa criptografar utilizando nossa chave, sem precisar de sua
+permissão.
+
+Verificando o diretório criado, `backup_docs`, encontramos três novos arquivos
+dentro, todos criptografados:
+
+    $ ls -1 backup_docs
+    duplicity-full.20130727T053121Z.manifest.gpg
+    duplicity-full.20130727T053121Z.vol1.difftar.gpg
+    duplicity-full-signatures.20130727T053121Z.sigtar.gpg
+
+O arquivo `vol1.difftar.gpg` contém os dados armazenados; os outros dois
+arquivos contém _metadados_ sobre os conteúdos do arquivo, para que as
+diferenças sejam calculadas na próxima vez que o backup for executado.
+
+Se fizermos uma pequena mudança num arquivo do diretório que estamos copiando e
+rodarmos o mesmo comando novamente, notaremos que o backup será realizado
+_incrementalmente_, e apenas as mudanças (o novo arquivo) será salvo:
+
+    $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos file://backup_docs
+    Os metadados remotos e locais estão sincronizados; nenhuma sincronização é necessária.
+    Data da última cópia de segurança completa: Sab Jul 27 17:34:33 2013
+    --------------[ Estatísticas de backup ]--------------
+    StartTime 1374903396.52 (Sat Jul 27 17:36:36 2013)
+    EndTime 1374903396.52 (Sat Jul 27 17:36:36 2013)
+    ElapsedTime 0.01 (0.01 seconds)
+    SourceFiles 5
+    SourceFileSize 142255 (139 KB)
+    NewFiles 2
+    NewFileSize 4100 (4.00 KB)
+    DeletedFiles 0
+    ChangedFiles 0
+    ChangedFileSize 0 (0 bytes)
+    ChangedDeltaSize 0 (0 bytes)
+    DeltaEntries 2
+    RawDeltaSize 4 (4 bytes)
+    TotalDestinationSizeChange 753 (753 bytes)
+    Errors 0
+    -------------------------------------------------------
+
+Também encontraremos três novos arquivos no diretório `backup_docs`, contendo
+os novos dados:
+
+    $ ls -1 backup_docs
+    duplicity-full.20130727T053433Z.manifest.gpg
+    duplicity-full.20130727T053433Z.vol1.difftar.gpg
+    duplicity-full-signatures.20130727T053433Z.sigtar.gpg
+    duplicity-inc.20130727T053433Z.to.20130727T053636Z.manifest.gpg
+    duplicity-inc.20130727T053433Z.to.20130727T053636Z.vol1.difftar.gpg
+    duplicity-new-signatures.20130727T053433Z.to.20130727T053636Z.sigtar.gpg
+
+Note que os novos arquivos têm o prefixo `duplicity-inc-` ou `duplicity-new-`,
+denotando que são backups incrementais e não completos.
+
+Note, também, que para poder rastrear os arquivos que já foram copiados, o
+`duplicity(1)` armazena os metadados em `~/.cache/duplicity`, bem como junto
+com os backups. Assim, podemos executar nossos processos de backup de forma
+autônoma, ao invés de ter de inserir nossa senha para ler os metadados no
+servidor remoto antes de realizar o backup incremental. Naturalmente, se
+perdermos nossos arquivos em cache, não há problemas; podemos ler os arquivos
+que estão no backup fornecendo nossa senha quando pedida.
+
+## Backups remotos
+
+Se você tem acesso SSH ou mesmo apenas SCP/SFTP aos servidores do seu provedor
+de armazenamento, não é preciso mudar muito para que o `duplicity(1)` armazene
+os arquivos nesses servidores:
+
+    $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos sftp://usuario@backup.examplo.com.br:backup_docs
+
+Your backups will then be sent over an SSH link to the directory docsbackup on the system backup.example.com, with username user. In this way, not only is all the data protected in transmission, it’s stored encrypted on the remote server; it never sees your plaintext data. All anyone with access to your backups can see is their approximate size, the dates they were made, and (if you publish your public key) the user ID on the GnuPG key used to encrypt them.
+
+Seus backups serão, então, enviados por SSH ao diretório `backup_docs` no sistema `backup.exemplo.com.br`, com o nome de usuário `usuario`. Dessa maneira, os dados são não apenas protegidos durante a transmissão, mas também armazenados criptografados no servidor remoto, que nunca vê seus dados em texto plano. 
+
+
+[linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
+[cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
+[linux_crypto_intro]: #
+[ubuntu_one]: https://one.ubuntu.com/
+[skydrive]: https://skydrive.live.com/
+[conluio_nsa]: http://www.guardian.co.uk/world/2013/jul/11/microsoft-nsa-collaboration-user-data
+[dirvish]: http://www.dirvish.org/
+[duplicity]: http://duplicity.nongnu.org/
+[duplicity_pkg]: http://packages.debian.org/wheezy/duplicity
+[duplicity_man]: http://linux.die.net/man/1/duplicity
