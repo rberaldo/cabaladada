@@ -293,9 +293,12 @@ o que é bastante arriscado, especialmente se você estiver usando a autenticaç
 por senha e, consequentemente, pode enviar sua senha a um servidor
 mal-intencionado ou comprometido!
 
+Essa entrada é a parte 4 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
+
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [fail2ban]: http://www.fail2ban.org/
 [openbsd]: http://www.openbsd.org/
 [ssh-keygen]: http://linux.die.net/man/1/ssh-keygen

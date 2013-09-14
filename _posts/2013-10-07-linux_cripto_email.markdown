@@ -233,7 +233,7 @@ públicas você tiver, mais útil ele será.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [mutt]: http://www.mutt.org/
 [thunderbird]: http://www.mozilla.org/en-US/thunderbird
 [getmail]: http://pyropus.ca/software/getmail/

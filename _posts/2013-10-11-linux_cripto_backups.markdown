@@ -316,7 +316,7 @@ Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [ubuntu_one]: https://one.ubuntu.com/
 [skydrive]: https://skydrive.live.com/
 [conluio_nsa]: http://www.guardian.co.uk/world/2013/jul/11/microsoft-nsa-collaboration-user-data

@@ -294,7 +294,7 @@ Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [wikipedia]: http://en.wikipedia.org/wiki/Public-key_cryptography
 [debian_melhores_praticas]: http://keyring.debian.org/creating-key.html
 [sha1]: http://www.schneier.com/blog/archives/2005/02/cryptanalysis_o.html

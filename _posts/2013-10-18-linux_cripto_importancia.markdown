@@ -87,7 +87,7 @@ este artigo considere fazer o mesmo.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [snowden_wikipedia]: https://en.wikipedia.org/wiki/Edward_Snowden
 [nzherald]: http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&objectid=10885098
 [wikileaks]: http://www.wikileaks.org/plusd/cables/04WELLINGTON662_a.html

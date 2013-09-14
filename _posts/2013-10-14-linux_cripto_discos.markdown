@@ -194,7 +194,7 @@ de usar o LUKS seguramente.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [truecrypt]: http://www.truecrypt.org/
 [luks]: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 [cryptsetup_deb]: http://packages.debian.org/wheezy/cryptsetup

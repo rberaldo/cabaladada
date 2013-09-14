@@ -336,7 +336,7 @@ projeto][keychain_site] para mais informações sobre essa ferramenta.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [ssh-agent]: http://linux.die.net/man/1/ssh-agent
 [openssh_suite]: http://openssh.org/
 [ssh-add]: http://linux.die.net/man/1/ssh-add

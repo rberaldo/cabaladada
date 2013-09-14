@@ -235,7 +235,7 @@ O diretório pode ser restaurado de forma similar:
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [keepass]: http://keepass.com/
 [lastpass]: https://lastpass.com/
 [javascript_crypto]: http://www.matasano.com/articles/javascript-cryptography/

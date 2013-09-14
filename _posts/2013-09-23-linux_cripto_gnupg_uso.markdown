@@ -242,7 +242,7 @@ Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
-[linux_crypto_intro]: #
+[linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
 [apache_httpd]: http://httpd.apache.org/dev/verification.html
 [validando_chaves]: http://www.gnupg.org/gph/en/manual.html#AEN335
 [servidores_publicos]: http://www.gnupg.org/gph/en/manual.html#AEN464
