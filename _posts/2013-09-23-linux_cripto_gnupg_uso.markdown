@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: Com nossas chaves privada e públicas criadas e guardadas, podemos começar usar alguns dos recursos do GnuPG para assinar, verificar, criptografar e descriptografar arquivos e mensagens para distribuição em canais não confiáveis, como a internet.
 ---
 
-Essa é o terceiro post de uma série de dez posts traduzindo o original de Tom
+Este é o terceiro post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 
@@ -13,8 +13,8 @@ Para a lista de posts, veja a [introdução][linux_crypto_intro].
 
 ---
 
-Com nossas chaves privada e públicas criadas e guardadas, podemos começar usar
-alguns dos recursos do GnuPG para assinar, verificar, criptografar e
+Com nossas chaves privada e públicas criadas e guardadas, podemos começar a
+usar alguns dos recursos do GnuPG para assinar, verificar, criptografar e
 descriptografar arquivos e mensagens para distribuição em canais não
 confiáveis, como a internet.
 
@@ -61,7 +61,7 @@ assinatura ASCII em texto plano:
     =Lmvn
     -----END PGP SIGNATURE-----
 
-Note que a própria mensagem é nitidamente legível; ela não está criptografada,
+Note que a mensagem em si é nitidamente legível; ela não está criptografada,
 apenas verificada como escrita por uma pessoa em particular e não alterada
 desde então.
 
@@ -104,14 +104,13 @@ partir da URL que o time indica:
     $ wget http://www.apache.org/dist/httpd/KEYS
     $ gpg --import KEYS
 
-
 Poderíamos, então, baixar uma versão do Apache HTTPD, juntamente de sua chave,
-de um mirror arbitrário:
+de um espelho arbitrário:
 
     $ wget http://www.example.com/apache/httpd/httpd-2.4.4.tar.gz
     $ wget https://www.apache.org/dist/httpd/httpd-2.4.4.tar.gz.asc
 
-Podemos então usar a chave e a assinatura para verificar que essa é uma cópia
+Podemos, então, usar a chave e a assinatura para verificar que essa é uma cópia
 não comprometida do arquivo original assinado pelos desenvolvedores:
 
     $ gpg --verify httpd-2.4.4.tar.gz.asc httpd-2.4.4.tar.gz
@@ -130,15 +129,15 @@ entanto, ao buscá-lo nos servidores públicos de chaves, podemos ver que muitos
 outros dos desenvolvedores do Apache assinaram sua chave, o que parece
 promissor. Mas nós sabemos quem *eles* são?
 
-Quando baixamos de mirrors, apesar da falta de certeza absoluta, essa
+Quando baixamos de espelhos, apesar da falta de certeza absoluta, essa
 verificação é muito melhor (e torna mais difícil explorar falhas de segurança)
 do que simplesmente baixar sem validar ou executar uma soma de verificação,
 dado que a assinatura e o arquivo `KEYS` foi baixado do próprio site da Apache.
 
-Você terá de decidir para si mesmo [qual o grau de certeza
+Você terá de decidir por si só [qual o grau de certeza
 necessário][validando_chaves] para confiar que a chave pública de alguém
-realmente corresponde a ela. Esse grau de certeza pode se estender até o ponto
-de combinar um encontro com essa pessoa, verificando sua identidade com
+realmente corresponde a essa pessoa. Esse grau de certeza pode se estender até
+o ponto de combinar um encontro com essa pessoa, verificando sua identidade com
 documentos de identificação expedidos pelo governo!
 
 ## Criptografando um arquivo
@@ -153,8 +152,6 @@ Esse é o conteúdo do arquivo `mensagem-secreta.txt`:
 
     Essa é uma mensagem secreta de Timoteo Aspargos.
 
-Now we need at least one recipient. Let’s say this message was intended for my friend John Public. He’s given me his public key in a file called john-public.asc on a USB drive in person; he even brought along his birth certificate and driver’s license (which is weird, because I’ve known him since I was four).
-
 Agora, precisamos de pelo menos um destinatário. Digamos que essa mensagem é
 destinada ao meu amigo, João Público. Ele me entregou sua chave pública, em
 pessoa, em um arquivo chamado `joao-publico.asc` num pendrive; ele trouxe até
@@ -163,10 +160,10 @@ porque o conheço desde que tinha quatro anos de idade).
 
 Para começar, irei importar sua chave para meu chaveiro:
 
-$ gpg --import joao-publico.asc
-gpg: key 695195A5: public key "João Público (Chave principal) <joaopublico@exemplo.com.br>" imported
-gpg: Número total processado: 1
-gpg:               imported: 1  (RSA: 1)
+    $ gpg --import joao-publico.asc
+    gpg: key 695195A5: public key "João Público (Chave principal) <joaopublico@exemplo.com.br>" imported
+    gpg: Número total processado: 1
+    gpg:               imported: 1  (RSA: 1)
 
 Agora podemos criptografar a mensagem para que apenas o João leia. Gosto de
 usar o código hexadecimal de oito dígitos para o `--recipient`, para ter

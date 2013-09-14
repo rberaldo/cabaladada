@@ -2,10 +2,10 @@
 layout: post
 title: "Criptografia no Linux: Chaves SSH"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
+excerpt: "O método mais comum de autenticação a um servidor OpenSSH é a inserção de sua senha na máquina remota. Esse método é apropriado para o primeiro contato com a máquina e é suportado de fábrica pelo ssh(8). Porém, ele também é alvo de ataques constantes. Iremos investigar a configuração e uso de chaves SSH como alternativa para a autenticação por meio de senhas."
 ---
 
-Essa é o quarto post de uma série de dez posts traduzindo o original de Tom
+Este é o quarto post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 
@@ -13,8 +13,8 @@ Para a lista de posts, veja a [introdução][linux_crypto_intro].
 
 ---
 
-O método comum de se autenticar a um servidor OpenSSH é inserir a sua senha na
-máquina remota:
+O método mais comum de autenticação a um servidor OpenSSH é a inserção de sua
+senha na máquina remota:
 
     tim@local:~$ ssh remoto
     The authenticity of host 'remoto (192.168.0.64)' can't be established.
@@ -51,17 +51,17 @@ desta série, pares de chaves SSH são compostos de uma **chave privada** e uma
 autenticação são baseadas na ideia de que se alguém possui sua chave pública,
 essa pessoa é capaz de autenticá-lo ao requerer operações que podem ser
 realizadas apenas com a chave privada correspondente; o funcionamento é similar
-a **assinatura** criptográfica.
+à **assinatura** criptográfica.
 
 Esse método é efetivo pois requer uma chave pública válida para realizar a
 autenticação. Com uma chave longa o suficiente, torna-se efetivamente
 impossível que um invasor adivinhe seus detalhes de autenticação; não existe
 uma chave privada “comum” para adivinhar. Desse modo, os invasores teriam de
-testar todas as chaves públicas possível, o que não é nem remotamente prático.
+testar todas as chaves públicas possíveis, o que não é nem remotamente prático.
 
 O `sshd(8)` de seu sistema ainda pode ser atacado, mas caso utilize apenas a
 autenticação por chave pública, você pode estar confortavelmente certo de que é
-*efetivamente impossível* descobrir suas credenciais usando ataques de força
+_efetivamente impossível_ descobrir suas credenciais usando ataques de força
 bruta. Note, no entanto, que isso não necessariamente te protege contra
 problemas de segurança no próprio `ssh(8)`, e você ainda deve proteger sua
 chave privada de ser roubada, daí a necessidade de uma senha.
@@ -87,8 +87,8 @@ dia o RSA se torne inseguro não seja difícil. Se você preferir usar o novo
 algorítimo [ECDSA][elliptic_curve], que é o padrão em versões recentes do
 OpenSSH, os passos a seguir ainda irão funcionar. Também utilizarei um
 **comentário** para a chave como um identificador não criptografado, para
-distingui-la de outras chaves, caso eu tenha mais. No meu caso, endereços de
-email funcionam bem.
+distingui-la de outras chaves, caso eu tenha mais de uma. No meu caso,
+endereços de email funcionam bem.
 
     $ ssh-keygen -t rsa -b 4096 -C taspargos@exemplo.com.br
     Generating public/private rsa key pair.
@@ -108,7 +108,7 @@ diferente:
     Enter same passphrase again:
 
 Isso feito, uma chave é gerada, incluindo uma representação pictórica que
-permite o reconhecimento das chaves com um breve olhar. Nunca julguei essa
+permite o reconhecimento das chaves com um breve olhar. Nunca achei essa
 representação muito útil, mas o fingerprint da chave é:
 
     Your identification has been saved in /home/tim/.ssh/id_rsa.
@@ -187,8 +187,6 @@ seu DNS for envenenado, ou algum ataque similar induzi-lo a conectar a um
 daemon SSH falso, projetado para coletar credenciais, sua chave privada e sua
 senha continuam seguras.
 
-The second advantage comes with turning off password authentication entirely on the host machine, once all its users have switched to public key authentication only. This is done with the following settings in sshd_config(5), usually in /etc/ssh/sshd_config on the remote server:
-
 A segunda vantagem vem com o desligamento completo da autenticação por senha na
 máquina remota, desde que todos os seus usuários estejam usando apenas a
 autenticação por chave pública. Esse desligamento é feito com as seguintes
@@ -213,7 +211,7 @@ mais difíceis.
 O uso da autenticação por chave pública também permite ao `sshd(8)` um controle
 refinado sobre a autenticação, tal como quais computadores podem conectar com
 quais chaves, se eles podem executar túneis TCP ou X11, e (até um ponto) quais
-comandos podem ser executados uma vez conectado. Veja a página do manual de
+comandos podem ser executados uma vez conectado. Veja a página do manual do
 [`authorized_keys(5)`][authorized_keys] para dar uma olhada em alguns exemplos.
 
 Finalmente, existe uma importante vantagem de usabilidade ao usar chaves SSH
