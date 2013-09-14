@@ -2,7 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Introdução"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt: "No qual apresento uma tradução do texto “Linux Crypto: Introduction” de Tom Ryder. A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo."
+excerpt: "A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo."
 ---
 
 Essa é uma série de posts que será publicada em dez partes, traduzindo o
@@ -22,14 +22,10 @@ trabalhar com arquivos online assinados digitalmente e criptografados.
 
 Trabalharei com o Debian GNU/Linux, mas a maior parte dessas ferramentas deve
 se adaptar bem em outros sistemas abertos no estilo UNIX, incluindo o BSD.
-Sinta-se a vontade para comentar nos artigos sobre detalhes relevantes para
-suas próprias implementações, ou considerações extras de segurança para
-os leitores interessados.
-
-Aviso que não sou um expert em algorítimos criptográficos ou em seguranças de
-chaves. Se você é um e encontrar algum erro ou problema de segurança em
-qualquer uma de minhas explicações ou sugestões, por favor, avise-me que irei
-corrigi-los e lhe darei o crédito.
+Aviso que não sou um expert em algorítimos criptográficos ou em segurança de
+chaves. Se você é, e encontrar algum erro ou problema de segurança em qualquer
+uma de minhas explicações ou sugestões, por favor, [avise-me][rberaldo] que
+irei corrigi-los e lhe darei o crédito.
 
 Cobrirei os seguintes tópicos:
 
@@ -48,6 +44,7 @@ os outros artigos.
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
+[rberaldo]: mailto:rberaldo@cabaladada.org
 [gnupg_intro]: #
 [gnupg_uso]: #
 [ssh_chaves]: #
