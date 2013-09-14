@@ -38,7 +38,7 @@ instalação do GnuPG para criptografar arquivos antes de enviá-los:
 
     $ tar -cf backup_docs-"$(date +%Y-%m-%d)".tar $HOME/Documentos
     $ gpg --encrypt backup_docs-2013-07-27.tar
-    $ scp backup_docs-2013-07-27.tar.gpg usuario@backup.examplo.com.br:backup_docs
+    $ scp backup_docs-2013-07-27.tar.gpg usuario@backup.exemplo.com.br:backup_docs
 
 O problema de criptografar arquivos inteiros antes de copiá-los ao servidor de
 armazenamento é que mesmo para dados de tamanho modesto, realizar backups
@@ -175,12 +175,144 @@ Se você tem acesso SSH ou mesmo apenas SCP/SFTP aos servidores do seu provedor
 de armazenamento, não é preciso mudar muito para que o `duplicity(1)` armazene
 os arquivos nesses servidores:
 
-    $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos sftp://usuario@backup.examplo.com.br:backup_docs
+    $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos sftp://usuario@backup.exemplo.com.br:backup_docs
 
-Your backups will then be sent over an SSH link to the directory docsbackup on the system backup.example.com, with username user. In this way, not only is all the data protected in transmission, it’s stored encrypted on the remote server; it never sees your plaintext data. All anyone with access to your backups can see is their approximate size, the dates they were made, and (if you publish your public key) the user ID on the GnuPG key used to encrypt them.
+Seus backups serão, então, enviados por SSH ao diretório `backup_docs` no
+sistema `backup.exemplo.com.br`, com o nome de usuário `usuario`. Dessa
+maneira, os dados são não apenas protegidos durante a transmissão, mas também
+armazenados criptografados no servidor remoto, que nunca vê seus dados em texto
+plano. Qualquer um que tenha acesso aos seus backups pode ver apenas o tamanho
+aproximado dos dados, a data em que foram criados e (se você publicar sua chave
+pública) a ID de usuário da chave do GnuPG usada para criptografá-los.
 
-Seus backups serão, então, enviados por SSH ao diretório `backup_docs` no sistema `backup.exemplo.com.br`, com o nome de usuário `usuario`. Dessa maneira, os dados são não apenas protegidos durante a transmissão, mas também armazenados criptografados no servidor remoto, que nunca vê seus dados em texto plano. 
+Se você estiver [usando o programa `ssh-agent(1)`][agentes] para armazenar suas
+chaves privadas descriptografadas, você nem mesmo terá de digitar sua senha
+para isso.
 
+A interface do `duplicity(1)` suporta outros métodos de envio para diferentes
+servidores, também, incluindo o backend `boto`, para o S3 Amazon Web Services,
+o backend `gdocs`, para o Google Docs, e `httplib2` ou `oauthlib` para o Ubuntu
+One.
+
+Se você desejar, também é possível assinar seus backups, para garantir que não
+foram modificados, mudando `--encrypt-key` para `--encrypt-sign-key`. Note que
+essa operação irá requerer sua senha.
+
+## Restaurando o backup
+
+Restaurar a partir de um volume de backup do `duplicity` é bem parecido, mas os
+argumentos são invertidos:
+
+    $ duplicity sftp://usuario@backup.exemplo.com.br:backup_docs restaura_docs
+    Sincronizando metadados remotos ao cache local...
+    Senha GnuPG:
+    Copiando duplicity-full-signatures.20130727T053433Z.sigtar.gpg ao cache local.
+    Copiando duplicity-full.20130727T053433Z.manifest.gpg ao cache local.
+    Copiando duplicity-inc.20130727T053433Z.to.20130727T053636Z.manifest.gpg ao cache local.
+    Copiando duplicity-new-signatures.20130727T053433Z.to.20130727T053636Z.sigtar.gpg ao cache local.
+    Data do último backup: Sat Jul 27 17:34:33 2013
+
+Note que, dessa vez, sua senha será requerida, pois a restauração do backup
+requer a descriptografia dos dados e possivelmente as assinaturas em seu volume
+de backup. Após inseri-la, o conjunto completo de documentos mais recentemente
+copiados estará disponível em `restaura_docs`.
+
+Usando esse sistema incremental, também podemos restaurar os dados tal como
+eram antes de uma data específica. Por exemplo, para recuperar meu diretório
+`~/Documentos` tal como era há três dias, posso rodar:
+
+    $ duplicity --time 3D \
+        sftp://usuario@backup.exemplo.com.br:backup_docs \
+        restaura_docs
+
+Para volumes maiores, você pode extender esse comando para restaurar apenas
+arquivos em particular, se precisar:
+
+    $ duplicity --time 3D \
+        --file-to-restore privado/eff.txt \
+        sftp://usuario@backup.exemplo.com.br:backup_docs \
+        restaura_docs
+
+## Automatizando o backup
+
+Você deve rodar seu primeiro backup interativamente para garantir que ele faz o
+que você precisa mas, quando você estiver confiante que tudo está funcionando
+corretamente, você pode escrever um Bash script simples para rodar backups
+incrementais para você. Aqui está um exemplo, salvo em
+`$HOME/.local/bin/backup-remote`:
+
+    #!/usr/bin/env bash
+    
+    # Rode o keychain para encontrar quaisquer agentes armazenando chaves
+    # descriptografadas que possamos precisar (opcional, dependendo da sua
+    # configuração de chave do SSH) 
+    eval "$(keychain --eval --quiet)"
+    
+    # Especifique um diretório para faze backup, uma ID de chave GnuPG, e um
+    # usuário remoto e hostname
+    keyid=taspargos@exemplo.com.br
+    local=/home/tim/Documentos
+    remote=sftp://usuario@backup.exemplo.com.br/backup_docs
+    
+    # Execute o backup com o duplicity
+    /usr/bin/duplicity --encrypt-key "$keyid" -- "$local" "$remote"
+
+A linha com `keychain` é opcional, mas será necessária se você estiver usando
+uma chave SSH com senha; também será necessário ter se autenticado ao
+`ssh-agent` ao menos uma vez. Veja o artigo anterior [sobre agentes
+SSH/GPG][agentes] para mais detalhes.
+
+Não esqueça de tornar o script executável:
+
+    $ chmod +x ~/.local/bin/backup-remote
+
+Você também pode pedir ao [`cron(8)`][cron] que execute-o uma vez por semana,
+rodando como seu usuário, editando o [arquivo `crontab(5)` de
+usuário][crontab_usuario]:
+
+    $ crontab -e
+
+A linha a seguir roda o script toda manhã, começando às 6:
+
+    0 6 * * *   ~/.local/bin/backup-remote
+
+## Dicas
+
+Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
+[Tao do Backup][tao_backup]:
+
+- Garanta que seus backups são completados; peça ao `cron` que envie sua saída
+  para seu email ou para um arquivo que você cheque pelo menos ocasionalmente,
+  para ter certeza que seus backups estão funcionando. Recomendo altamente usar
+  o email e incluir erros:
+
+        MAILTO=voce@exemplo.com.br
+        0 6 * * *   ~/.local/bin/backup-remote 2>&1
+
+- Armazene seus backups em servidores locais, também. Você pode prevenir que
+  seu provedor de backup leia seus arquivos, mas não pode evitar que sejam
+  deletados acidentalmente.
+
+- Não se esqueça de testar/restaurar seus backups ocasionalmente para garantir
+  que estão funcionando corretamente. Também é aconselhável rodar `duplicity
+  verify` sobre os arquivos ocasionalmente, especialmente se você não realiza o
+  backup todos os dias:
+
+        $ duplicity verify sftp://usuario@remoto.exemplo.com.br/backup_docs Documentos
+        Os metadados remotos e locais estão sincronizados; nenhuma sincronização é necessária.
+        Data da última cópia de segurança completa: Sat Jul 27 17:34:33 2013
+        Senha GnuPG:
+        Verificação completa: 2195 files compared, 0 differences found.
+
+- Esse sistema incremental significa que você, provavelmente, terá de fazer
+  backups completos apenas uma vez, portanto você deve copiar muito dados, ao
+  invés de muito poucos dados; se você pode gastar a banda e tem espaço, copiar
+  seu computador inteiro não é tão extremo.
+
+- Tente não depender demais dos seus backups remotos; veja-os como último
+  recurso e trabalhe seguramente e com backups locais tanto quanto puder.
+  Certamente, nunca confie em backups como controle de versão; [use o Git para
+  isso][git].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
@@ -192,3 +324,8 @@ Seus backups serão, então, enviados por SSH ao diretório `backup_docs` no sis
 [duplicity]: http://duplicity.nongnu.org/
 [duplicity_pkg]: http://packages.debian.org/wheezy/duplicity
 [duplicity_man]: http://linux.die.net/man/1/duplicity
+[agentes]: #
+[cron]: http://linux.die.net/man/8/cron
+[crontab_usuario]: http://blog.sanctum.geek.nz/user-cron-tasks/
+[tao_backup]: http://www.taobackup.com/
+[git]: http://git-scm.com/book
