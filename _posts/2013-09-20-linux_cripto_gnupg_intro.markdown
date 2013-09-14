@@ -2,10 +2,10 @@
 layout: post
 title: "Criptografia no Linux: Chaves do GnuPG"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt: Muitas ferramentas que usam criptografia no Linux e na internet centram-se no padrão de software Pretty Good Privacy (OpenPGP). O GNU Privacy Guard (GnuPG ou GPG) é uma implementação em software livre popular desse padrão.
+excerpt: "Muitas ferramentas que usam criptografia no Linux e na internet centram-se no padrão de software Pretty Good Privacy (OpenPGP). O GNU Privacy Guard (GnuPG ou GPG) é uma implementação em software livre popular desse padrão."
 ---
 
-Essa é o segundo post de uma série de dez posts traduzindo o original de Tom
+Este é o segundo post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 
@@ -45,11 +45,11 @@ ideias centrais:
   com sua própria chave privada para que elas possam verificar que ela foi
   enviada por você.
 
-Iremos passar pelos fundamentais de cada uma dessas ideias. Não iremos nos
-preocupar demais com a matemática ou os algorítimos por trás dessas operações;
-o artigo da Wikipédia sobre a [criptografia de chave assimétrica][wikipedia]
-[em inglês] explica esse aspecto muito bem para aqueles curiosos por mais
-detalhes.
+Iremos passar pelos fundamentais de cada uma dessas ideias. Não nos
+preocuparemos demais com a matemática ou os algorítimos por trás dessas
+operações; o artigo da Wikipédia sobre a [criptografia de chave
+assimétrica][wikipedia] explica esse aspecto muito bem para aqueles curiosos
+por mais detalhes.
 
 ## Gerando um par de chaves
 
@@ -58,11 +58,10 @@ que o suficiente para quase todos no momento da escrita deste artigo. Iremos
 seguir algumas das [melhores práticas][debian_melhores_praticas] recomendadas
 pelos desenvolvedores do Debian.
 
-Fazer isso num computador privado e atualizado é o melhor, uma vez que é mais
-fácil gerar entropia dessa maneira. Isso ainda é possível num servidor
-acessível apenas por SSH, mas você pode ter que recorrer a métodos menos sãos,
-criptograficamente falando, para gerar a aleatoriedade apropriada.
-
+O ideal é realizar essas operações num computador privado e atualizado  uma vez
+que é mais fácil gerar entropia dessa maneira. Isso ainda é possível num
+servidor acessível apenas por SSH, mas você pode ter que recorrer a métodos
+menos sãos, criptograficamente falando, para gerar a aleatoriedade apropriada.
 
 Crie ou edite o arquivo `~/.gnupg/gpg.conf` no seu sistema, e adicione as
 seguintes linhas:
@@ -95,7 +94,7 @@ Para o comprimento da chave, escolha o máximo (RSA 4096 bits):
     What keysize do you want? (2048) 4096
     O tamanho de chave pedido é 4096 bits
 
-A data de validade cabe a você: se você está apenas brincando com o GnuPG no
+A data de expiração cabe a você: se está apenas brincando com o GnuPG no
 momento, sinta-se livre para configurar uma validade curta. No entanto, se você
 pretende usar o GnuPG por bastante tempo e está certo de que pode manter sua
 chave indefinidamente segura, sinta-se à vontade para configurá-la para nunca
@@ -155,15 +154,15 @@ suficiente para assegurar que a chave privada que está sendo gerada não possa
 ser viavelmente reproduzida. Mover o mouse e usar o teclado é o ideal, mas
 gerar qualquer tipo de atividade no hardware (incluindo girar os discos) deve
 servir. Rodar operações dispendiosas com o `find(1)` num sistema de arquivos
-(com conteúdos que não possar ser razoavelmente preditos ou adivinhados) também
+(com conteúdos que não possam ser razoavelmente preditos ou adivinhados) também
 ajuda.
 
 Esse passo se beneficia de sua paciência. Você pode encontrar discussões online
-sobre forçar o uso do gerador de números pseudo-aleatórios /dev/urandom ao
+sobre forçar o uso do gerador de números pseudo-aleatórios `/dev/urandom` ao
 invés disso, usado uma ferramenta como o `rngd(1)`. Isso definitivamente
 acelera o processo, mas se você irá usar a sua chave para qualquer atividade
 séria, recomendo realmente interagir com o computador usando o ruído do
-hardware para alimentar a aleatoriedade adequadamente, se você puder.
+hardware para alimentar a aleatoriedade adequadamente, se puder.
 
 Quando entropia o suficiente é lida e a chave terminar de ser gerada, alguns
 detalhes da sua chave mestra e sua subchave serão apresentados, e as chaves
@@ -184,7 +183,7 @@ chaveiro para uso posterior:
 
 ## Gerenciando chaves
 
-Com isso feito, adicionamos nossas próprias chaves ao chaveiro privado e
+Com isso feito, nossas próprias chaves estão adicionadas ao chaveiro privado e
 público:
 
     $  gpg --list-secret-keys 
@@ -209,7 +208,7 @@ fisicamente seguro. Não o perca!
 Na maior parte dos contextos no GnuPG, você pode se referir à chave pelo nome
 do seu dono ou pela sua identificação hexadecimal de oito dígitos. Eu prefiro o
 último método. Nesse caso, a identificação curta da minha chave principal é
-1FC2985D. Embora você não deva usá-la para fazer nenhum tipo de verificação,
+`1FC2985D`. Embora você não deva usá-la para fazer nenhum tipo de verificação,
 ela é suficientemente única para identificar uma chave específica no seu
 chaveiro.
 
@@ -274,12 +273,12 @@ assinatura criptográfica, e a subchave para a encriptação; é assim que o Gnu
 opera por padrão com pares de chaves RSA.
 
 Para mais segurança, pode ser apropriado fisicamente mover a chave mestra do
-seu computador e usar uma segunda subchave gerada para assinar arquivos. Isso é
-desejável por lhe permite manter sua chave mestra segura em alguma mídia
-removível (preferivelmente com um backup) e não carregada no seu computador
-principal, caso você seja comprometido.
+seu computador para outro local e usar uma segunda subchave gerada para assinar
+arquivos. Isso é desejável pois lhe permite manter sua chave mestra segura em
+alguma mídia removível (preferivelmente com um backup) e não carregada no seu
+computador principal, caso você seja comprometido.
 
-Dessa maneira, você pode assinar e criptografar arquivos normalmente com sua
+Dessa maneira, é possível assinar e criptografar arquivos normalmente com sua
 subchave de assinatura e sua subchave de criptografia. Se essas chaves forem
 algum dia comprometidas, você pode simplesmente revogá-las e gerar novas com
 sua chave mestra, que não foi comprometida. Além disso, todos aqueles que já
