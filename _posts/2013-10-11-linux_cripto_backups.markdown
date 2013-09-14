@@ -78,7 +78,7 @@ mesmo argumentos de fonte e destino que ferramentas como o `rsync` ou o `scp`:
 
 É importante especificar a opção `--encrypt-key`, pois de outro modo o
 `duplicity(1)` utilizará a criptografia simétrica com senha ao invés da chave
-pública, que é consideravelmente menos segura. Indique o endereço de e-mail que
+pública, que é consideravelmente menos segura. Indique o endereço de email que
 corresponde ao par de chaves que você deseja utilizar para a criptografia.
 
 O comando acima realiza o backup completo e criptografado do diretório,
