@@ -43,15 +43,40 @@ pre {
   font-size: 9pt;
   line-height: 11pt;
   padding: 5px;
+  margin-left: 24px;
   white-space: pre-wrap; 
-  color: #ffffff;
-  border-style: dashed;
+  border-style: solid;
   border-color: #1FE600;
   border-width: 1px;
+  /* The following gives a nice oldschool computer screen feel */
+  border-radius: 5px;
 }
 
-code {
-  color: #ffffff;
+p code {
+  /* Only apply this to code inside paragraphs, thus p code {} */
+  color: #161616;
+  background: #1FE600;
+  border-radius: 5px;
+  padding: 0 2px 0px 2px;
+}
+
+a code {
+  /* Only apply this to code that is a hyperlink */
+  color: #161616;
+  background: #CD0000;
+  border-radius: 5px;
+  padding: 0 2px 0px 2px;
+  text-decoration:none;
+  transition: background-color .6s;
+  -webkit-transition: background-color .6s; /* Safari and Chrome */
+  -moz-transition: background-color .6s; /* Firefox 4 */
+  -o-transition: background-color .6s; /* Opera */
+}
+
+a code:hover {
+  background-color:#440000;
+  border-radius: 5px;
+  padding: 0 2px 0px 2px;
 }
 
 /* Page title */
@@ -138,6 +163,3 @@ img.right {
 img {
   max-width: 624px;
 }
-
-/* Custom styles */
-/* (nothing for now) */
