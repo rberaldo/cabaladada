@@ -3,6 +3,7 @@ layout: post
 title: "Criptografia no Linux: Discos"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt:
+published: false
 ---
 
 Essa é o nono post de uma série de dez posts traduzindo o original de Tom

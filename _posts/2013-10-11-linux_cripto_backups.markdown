@@ -3,6 +3,7 @@ layout: post
 title: "Criptografia no Linux: Backups"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt:
+published: false
 ---
 
 Essa é o oitavo post de uma série de dez posts traduzindo o original de Tom

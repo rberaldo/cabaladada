@@ -3,6 +3,7 @@ layout: post
 title: "Criptografia no Linux: Chaves do GnuPG"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: "Muitas ferramentas que usam criptografia no Linux e na internet centram-se no padrão de software Pretty Good Privacy (OpenPGP). O GNU Privacy Guard (GnuPG ou GPG) é uma implementação em software livre popular desse padrão."
+published: false
 ---
 
 Este é o segundo post de uma série de dez posts traduzindo o original de Tom
