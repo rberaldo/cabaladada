@@ -6,7 +6,7 @@ excerpt: "In which I discuss what flags I use with the rsync command and a small
 ---
 
 `rsync` is a wonderful program. Three days ago, I forgot to use it and used
-`scp` to transfer the files of this blog from my netbook to the server instead,
+`scp` instead to transfer the files of this blog from my netbook to the server,
 destroying my `piwik` installation in the process. In my defense, it was 7 am
 and I was in a hurry to upload the [first post on the Linux Crypto
 series][linux_crypto_intro].
