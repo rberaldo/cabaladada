@@ -38,6 +38,10 @@ h2 {
   text-align: center;
 }
 
+blockquote {
+  margin-left: 24px;
+}
+
 /* Code */
 pre {
   font-size: 9pt;
