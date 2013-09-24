@@ -3,7 +3,6 @@ layout: post
 title: "Criptografia no Linux: Usando o GnuPG"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: Com nossas chaves privada e públicas criadas e guardadas, podemos começar usar alguns dos recursos do GnuPG para assinar, verificar, criptografar e descriptografar arquivos e mensagens para distribuição em canais não confiáveis, como a internet.
-published: false
 ---
 
 Este é o terceiro post de uma série de dez posts traduzindo o original de Tom

@@ -46,7 +46,7 @@ os outros artigos.
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
 [rberaldo]: mailto:rberaldo@cabaladada.org
 [gnupg_intro]: {% post_url 2013-09-20-linux_cripto_gnupg_intro %}
-[gnupg_uso]: #
+[gnupg_uso]: {% post_url 2013-09-23-linux_cripto_gnupg_uso %}
 [ssh_chaves]: #
 [agentes]: #
 [pass]: #
