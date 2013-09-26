@@ -3,7 +3,6 @@ layout: post
 title: "Criptografia no Linux: Chaves SSH"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: "O método mais comum de autenticação a um servidor OpenSSH é a inserção de sua senha na máquina remota. Esse método é apropriado para o primeiro contato com a máquina e é suportado de fábrica pelo ssh(8). Porém, ele também é alvo de ataques constantes. Iremos investigar a configuração e uso de chaves SSH como alternativa para a autenticação por meio de senhas."
-published: false
 ---
 
 Este é o quarto post de uma série de dez posts traduzindo o original de Tom
