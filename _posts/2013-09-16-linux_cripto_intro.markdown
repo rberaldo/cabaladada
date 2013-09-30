@@ -32,7 +32,7 @@ Cobrirei os seguintes tópicos:
 - [Geração e manutenção de chaves para o GnuPG][gnupg_intro]
 - [Assinando, verificando, criptografando e descriptografando com o GnuPG][gnupg_uso]
 - [Geração e autenticação com chaves SSH][ssh_chaves]
-- [`gpg-agent(1)`, `ssh-agent(1)` e o uso do `keychain(1)`][agentes] (30/9)
+- [`gpg-agent(1)`, `ssh-agent(1)` e o uso do `keychain(1)`][agentes]
 - [O gerenciador de senhas `pass(1)`][pass] (4/10)
 - [Emails criptografados/assinados com PGP usando o `mutt(1)`][mutt] (7/10)
 - [Backups incrementais e criptografados usando o `duplicity(1)`][duplicity] (11/10)
@@ -48,7 +48,7 @@ os outros artigos.
 [gnupg_intro]: {% post_url 2013-09-20-linux_cripto_gnupg_intro %}
 [gnupg_uso]: {% post_url 2013-09-23-linux_cripto_gnupg_uso %}
 [ssh_chaves]: {% post_url 2013-09-27-linux_cripto_chaves_ssh %}
-[agentes]: #
+[agentes]: {% post_url 2013-09-30-linux_cripto_agentes %}
 [pass]: #
 [mutt]: #
 [duplicity]: #
