@@ -2,8 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Agentes"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
-published: false
+excerpt: Agora que o GnuPG e o SSH estão configurados seguramente, podemos criptografar, descriptografar, assinar e verificar mensagens, e autenticar seguramente a servidores remotos sem o risco de expor nossas senhas e com uma possibilidade efetivamente nula de ataques de força bruta. Isso tudo é ótimo, mas ainda existe um elo fraco em nossa corrente com o qual lidar — nossas senhas.
 ---
 
 Essa é o quinto post de uma série de dez posts traduzindo o original de Tom
