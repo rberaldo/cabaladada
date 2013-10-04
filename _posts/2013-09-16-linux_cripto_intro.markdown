@@ -33,7 +33,7 @@ Cobrirei os seguintes tópicos:
 - [Assinando, verificando, criptografando e descriptografando com o GnuPG][gnupg_uso]
 - [Geração e autenticação com chaves SSH][ssh_chaves]
 - [`gpg-agent(1)`, `ssh-agent(1)` e o uso do `keychain(1)`][agentes]
-- [O gerenciador de senhas `pass(1)`][pass] (4/10)
+- [O gerenciador de senhas `pass(1)`][pass]
 - [Emails criptografados/assinados com PGP usando o `mutt(1)`][mutt] (7/10)
 - [Backups incrementais e criptografados usando o `duplicity(1)`][duplicity] (11/10)
 - [Drives USB criptografados usando o LUKS][luks] (14/10)
