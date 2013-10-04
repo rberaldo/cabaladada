@@ -49,7 +49,7 @@ os outros artigos.
 [gnupg_uso]: {% post_url 2013-09-23-linux_cripto_gnupg_uso %}
 [ssh_chaves]: {% post_url 2013-09-27-linux_cripto_chaves_ssh %}
 [agentes]: {% post_url 2013-09-30-linux_cripto_agentes %}
-[pass]: #
+[pass]: {% post_url 2013-10-04-linux_cripto_senhas %}
 [mutt]: #
 [duplicity]: #
 [luks]: #

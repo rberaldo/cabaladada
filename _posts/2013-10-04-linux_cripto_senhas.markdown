@@ -2,8 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Senhas"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
-published: false
+excerpt: Agora que temos uma configuração cuidadosa do GnuPG, podemos utilizar o pass(1) para gerenciar nossas senhas de modo seguro. Se você ainda não investiu em um método de gerenciamento de senhas, essa pode ser uma boa aplicação inicial para o seu sistema de criptografia e uma ótima abordagem minimalista para o armazenamento seguro de senhas.
 ---
 
 Essa é o sexto post de uma série de dez posts traduzindo o original de Tom
@@ -14,28 +13,28 @@ Para a lista de posts, veja a [introdução][linux_crypto_intro].
 
 ---
 
-É cada vez mais amplamente conhecido que o uso de senhas previsíveis ou o uso
-da mesma senha para mais de uma conta é um sério risco de segurança, pois um
-invasor pode tomar controle de uma conta (como um email) e causar uma série de
-prejuízos. Se um invasor conseguir o hash de sua senha para algum serviço na web,
-você quer ter certeza de que o hash é muito difícil de reverter e, mesmo que
+É cada vez mais conhecido que o uso de senhas previsíveis ou o uso da mesma
+senha para mais de uma conta é um sério risco de segurança, pois um invasor
+pode tomar controle de uma conta (como um email) e causar uma série de
+prejuízos. Se um invasor conseguir o hash de sua senha para algum serviço na
+web, convém ter certeza de que o hash é muito difícil de reverter e, mesmo que
 ele possa ser revertido, é exclusivo o bastante para não dar ao invasor acesso
 a qualquer outra de suas contas.
 
-Essa crescente percepção contribuiu com a popularidade dos **gerenciadores de
+Essa crescente percepção contribuiu para a popularidade dos **gerenciadores de
 senhas**, ferramentas projetadas para gerar, armazenar e recuperar senhas de
 forma segura, criptografadas com uma senha ou palavra passe mestra. Em alguns
-casos, como com o [KeePass][keepass], os dados são armazenados localmente; em
-outros, como com o [LastPass][lastpass], são armazenados em um serviço da web.
+casos, como o [KeePass][keepass], os dados são armazenados localmente; em
+outros, como o [LastPass][lastpass], são armazenados em um serviço da web.
 Ambas são boas ferramentas e funcionam bem no Linux. Pessoalmente, tenho
-algumas reservas quanto o LastPass, já que não quero minhas senhas armazenadas
-em um serviço de terceiros, além de [não confiar na criptografia com o
+algumas reservas quanto o LastPass, pois não quero minhas senhas armazenadas em
+um serviço de terceiros, além de [não confiar na criptografia com o
 JavaScript][javascript_crypto].
 
-Curiosamente, por que nós agora temos uma configuração cuidadosa do GnuPG para
-lidar com a criptografia sozinhos, outra opção é a ferramenta [`pass(1)][pass],
-que se autoproclama “o gerenciador de senhas padrão do UNIX”.  Ela não passa de
-um shell script e algumas completações para o `bash(1)` baseados em ferramentas
+Curiosamente, agora que temos uma configuração cuidadosa do GnuPG para lidar
+com a criptografia, outra opção é a ferramenta [`pass(1)][pass], que se
+autoproclama “o gerenciador de senhas padrão do UNIX”.  Ela não passa de um
+shell script e algumas completações para o `bash(1)` baseados em ferramentas
 existentes como o [`git(1)`][git], o [`gpg2(1)`][gpg2], o  [`pwgen(1)`][pwgen],
 o [`tree(1)`][tree], o [`xclip(1)`][xclip] e seu `$EDITOR` de escolha. Se você
 ainda não investiu em um método de gerenciamento de senhas existente, essa pode
@@ -48,7 +47,7 @@ pacote `pass`:
 
     # apt-get install pass
 
-Ele inclui um manual:
+Ela inclui um manual:
 
     $ man pass
 
@@ -134,8 +133,8 @@ comando:
     The generated password to google.com/gmail/exemplo@gmail.com is:
     pJeF18CrZEZzI59D
 
-O `pass(1)` usa o `pwgen(1)` para a geração de senhas. Nos dois casos acima, a
-senha é automaticamente inserida no armazenamento de senhas.
+O `pass(1)` usa o `pwgen(1)` para gerar as senhas. Nos dois casos acima, ela é
+automaticamente inserida no armazenamento.
 
 Se você precisa modificar uma senha existente, você pode tanto sobrescrevê-la
 com o comando `insert`, ou usar a operação `edit` para chamar o `$EDITOR` de
@@ -155,7 +154,7 @@ normalmente trabalha.
 
 ## Recuperando senhas
 
-A senha que adicionamos ao programa pode ser, agora, recuperado e impresso na
+A senha que adicionamos ao programa pode ser, agora, recuperada e impressa na
 linha de comando, desde que digitemos a senha correta para nossa chave privada:
 
     $ pass google.com/gmail/exemplo@gmail.com
@@ -233,6 +232,9 @@ O diretório pode ser restaurado de forma similar:
     $ gpg --decrypt \
         < password-store-backup.tar.gz.gpg \
         | tar -xz 
+
+Essa entrada é a parte 6 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
