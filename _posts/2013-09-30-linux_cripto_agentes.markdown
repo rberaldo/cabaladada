@@ -334,6 +334,9 @@ recomendável; gerenciar seus agentes e ambientes pode ser trabalhoso, e o
 um agente está disponível em seu contexto em particular. Confira [a página do
 projeto][keychain_site] para mais informações sobre essa ferramenta.
 
+Essa entrada é a parte 5 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
+
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
 [linux_crypto_intro]: {% post_url 2013-09-16-linux_cripto_intro %}
