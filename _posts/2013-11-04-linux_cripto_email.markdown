@@ -2,8 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Email"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
-published: false
+excerpt: "Um sistema de armazenamento criptografado de senhas é um bom começo, mas agora que temos uma instalação do GnuPG em funcionamento, devemos considerar o uso do PGP para aquilo que foi originalmente criado: emails. Para isso, usaremos o mutt."
 ---
 
 Essa é o sétimo post de uma série de dez posts traduzindo o original de Tom
@@ -14,7 +13,7 @@ Para a lista de posts, veja a [introdução][linux_crypto_intro].
 
 ---
 
-Um sistema de armazenamento criptografado de senhas é um bom começo, mas agora
+Um sistema de armazenamento de senhas criptografado é um bom começo, mas agora
 que temos uma instalação do GnuPG em funcionamento, devemos considerar o uso do
 PGP para aquilo que foi originalmente criado: emails. Para isso, usaremos o
 [Mutt][mutt].
@@ -24,7 +23,7 @@ agent_), projetado sobretudo para gerenciar e ler emails. Ao contrário de
 outros clientes como o [Thunderbird][thunderbird], ele não foi projetado para
 ser um cliente POP3/IMAP, ou um agente SMTP, embora versões mais recentes
 incluam essa funcionalidade; essas são operações realizadas por programas como
-o [Getmail][getmail]e o [MSMTP][msmtp].
+o [Getmail][getmail] e o [MSMTP][msmtp].
 
 Se, como muitas outras pessoas, você estiver usando o Gmail, o Mutt funciona
 muito bem com POP3/IMAP e SMTP, permitindo que você componha mensagens em texto
@@ -146,20 +145,20 @@ a chave corresponde àquele usuário.
 
 Se você conhece mais ninguém que use o PGP para se comunicar, você pode me
 enviar uma mensagem criptografada com minha chave pública,
-[0x77BB8872][tom_key], para `tom@sanctum.geek.nz`. Caso você me envie sua chave
-pública, ou insira um link em sua mensagem, irei respondê-la com outra mensagem
-criptografada com a sua chave pública, para que você pode verificar se tudo
-está funcionando.
+[0x77BB8872][tom_key], para `tom@sanctum.geek.nz` (em inglês). Caso você me
+envie sua chave pública, ou insira um link em sua mensagem, irei respondê-la
+com outra mensagem criptografada com a sua chave pública, para que você pode
+verificar se tudo está funcionando.
 
     $ curl http://static.sanctum.geek.nz/thomas-ryder.asc | gpg --import  
 
 Você também pode enviar uma mensagem criptografada com a chave pública do
 tradutor desse artigo, [0x2D4BF1D0][rberaldo_key], para
-`rberaldo@cabaladada.org`.
+`rberaldo@cabaladada.org` (em português ou inglês).
 
     $ curl http://www.cabaladada.org/public/rberaldo.asc | gpg --import
 
-Voltando ao Mutt, inicie a compor sua mensagem com a tecla `m`. Preencha os
+Voltando ao Mutt, comece a compor sua mensagem com a tecla `m`. Preencha os
 campos de destinatário e assunto normalmente e escreva sua mensagem. Quando
 terminar, salve e saia do `$EDITOR` e sua mensagem estará em sua tela de
 Composição, esperando para ser enviada. Aperte `p` para acessar o menu do PGP,
@@ -231,6 +230,9 @@ Todos esses aspectos, combinados com a rapidez e a configuração poderosa do
 Mutt, o tornam um cliente de email PGP conveniente e muito capaz. Como sempre,
 quanto mais pessoas que você conhecer utilizarem o PGP, e quanto mais chaves
 públicas você tiver, mais útil ele será.
+
+Essa entrada é a parte 7 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/

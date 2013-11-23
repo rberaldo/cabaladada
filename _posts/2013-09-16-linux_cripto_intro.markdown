@@ -2,7 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Introdução"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt: "A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo."
+excerpt: A criptografia para a autenticação e encriptação é um campo complexo e que muda com frequência e, para alguém novo no assunto, pode ser difícil saber onde começar. Se você é um usuário de Linux confortável com o terminal, mas não tem familiaridade com as ferramentas de criptografia disponíveis em sistemas operacionais abertos estilo UNIX, essa é uma série de posts que visa ajudá-lo.
 ---
 
 Essa é uma série de posts que será publicada em dez partes, traduzindo o
@@ -34,10 +34,10 @@ Cobrirei os seguintes tópicos:
 - [Geração e autenticação com chaves SSH][ssh_chaves]
 - [`gpg-agent(1)`, `ssh-agent(1)` e o uso do `keychain(1)`][agentes]
 - [O gerenciador de senhas `pass(1)`][pass]
-- [Emails criptografados/assinados com PGP usando o `mutt(1)`][mutt] (7/10)
-- [Backups incrementais e criptografados usando o `duplicity(1)`][duplicity] (11/10)
-- [Drives USB criptografados usando o LUKS][luks] (14/10)
-- [A importância da criptografia e sua ampla utilização][criptografia_importancia] (18/10)
+- [Emails criptografados/assinados com PGP usando o `mutt(1)`][mutt]
+- [Backups incrementais e criptografados usando o `duplicity(1)`][duplicity]
+- [Drives USB criptografados usando o LUKS][luks] (30/11)
+- [A importância da criptografia e sua ampla utilização][criptografia_importancia] (6/12)
 
 Se você já conhece sobre um tópico específico, sinta-se livre para pular para
 os outros artigos.
@@ -50,7 +50,7 @@ os outros artigos.
 [ssh_chaves]: {% post_url 2013-09-27-linux_cripto_chaves_ssh %}
 [agentes]: {% post_url 2013-09-30-linux_cripto_agentes %}
 [pass]: {% post_url 2013-10-04-linux_cripto_senhas %}
-[mutt]: #
-[duplicity]: #
+[mutt]: {% post_url 2013-11-04-linux_cripto_email %}
+[duplicity]: {% post_url 2013-11-23-linux_cripto_backups %}
 [luks]: #
 [criptografia_importancia]: #

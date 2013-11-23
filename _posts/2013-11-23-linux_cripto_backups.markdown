@@ -2,8 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Backups"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
-published: false
+excerpt: Embora possuir backups locais para a recuperação rápida de dados seja importante, tal como em um disco USB ou num disco rígido vago, é igualmente importante ter um backup externo, a partir do qual você possa restaurar seus documentos importantes se, por exemplo, o seu escritório foi roubado ou pegar fogo e você perder tanto seu computador quanto o seu meio de backup.
 ---
 
 Essa é o oitavo post de uma série de dez posts traduzindo o original de Tom
@@ -21,7 +20,7 @@ documentos importantes se, por exemplo, o seu escritório foi roubado ou pegar
 fogo e você perder tanto seu computador quanto o seu meio de backup.
 
 Para a maior parte das pessoas, a maneira mais fácil de fazê-lo é com um
-provedor de armazenamento, que ofereça acesso a armazenamento em massa de
+provedor de armazenamento que ofereça acesso a armazenamento em massa de
 tamanho adequado, mantido nos sistemas de outras companhia, por um preço
 relativamente modesto ou mesmo de graça, como o [Ubuntu One][ubuntu_one] ou o
 [Skydrive][skydrive], da Microsoft. Os melhores provedores também criptografam
@@ -34,8 +33,8 @@ corporativo com a NSA][conluio_nsa], e usuários preocupados com sua privacidade
 devem preferir a segurança de criptografar seus backups antes de serem enviados
 aos servidores. O provedor pode implementar seus próprios mecanismos de
 criptografia simétrica e/ou fechada, que podem ou não ser confiáveis. Como
-estabelecido, para uma criptografia pessoal muito forte, podemos usar nossa
-instalação do GnuPG para criptografar arquivos antes de enviá-los:
+estabelecido, para uma criptografia pessoal bastante robusta, podemos usar
+nossa instalação do GnuPG para criptografar arquivos antes de enviá-los:
 
     $ tar -cf backup_docs-"$(date +%Y-%m-%d)".tar $HOME/Documentos
     $ gpg --encrypt backup_docs-2013-07-27.tar
@@ -59,11 +58,11 @@ arquivando-as num formato recuperável e com um aproveitamento de espaço
 eficiente. Sistemas como o [Dirvish][dirvish], uma interface escrita em Perl
 para o `rsync(1)`, permitem isso.
 
-Infelizmente, o Dirvish não nem criptografa os arquivos, nem o conjunto de
+Infelizmente, o Dirvish não criptografa os arquivos nem o conjunto de
 alterações que ele armazena. Precisamos de uma solução de backup incremental
 que calcule e armazene eficientemente as mudanças nos arquivos num servidor
 remoto e que também os criptografe. O [Duplicity][duplicity], uma ferramenta
-escrita em Python e construída sob a biblioteca `librsync` se destaca nessa
+escrita em Python e construída sobre a biblioteca `librsync` se destaca nessa
 tarefa. Ele pode usar nossa configuração de chave assimétrica do GnuPG para a
 criptografia dos arquivos e está disponível em sistemas derivados do Debian no
 pacote [`duplicity`][duplicity_pkg].
@@ -71,16 +70,18 @@ pacote [`duplicity`][duplicity_pkg].
 ## Uso
 
 Podemos ter uma ideia de como o [`duplicity(1)`][duplicity_man] funciona
-pedindo que ele inicie um backup em nossa máquina local. Ele utiliza quase os
-mesmo argumentos de fonte e destino que ferramentas como o `rsync` ou o `scp`:
+pedindo que ele inicie um backup em nossa máquina local. O programa utiliza
+quase os mesmo argumentos de fonte e destino que ferramentas como o `rsync` ou
+o `scp`:
 
     $ cd
     $ duplicity --encrypt-key taspargos@exemplo.com.br Documentos file://backup_docs
 
 É importante especificar a opção `--encrypt-key`, pois de outro modo o
-`duplicity(1)` utilizará a criptografia simétrica com senha ao invés da chave
-pública, que é consideravelmente menos segura. Indique o endereço de email que
-corresponde ao par de chaves que você deseja utilizar para a criptografia.
+`duplicity(1)` utilizará a criptografia simétrica com senha, que é
+consideravelmente menos segura, ao invés da chave pública. Indique o endereço
+de email que corresponde ao par de chaves que você deseja utilizar para a
+criptografia.
 
 O comando acima realiza o backup completo e criptografado do diretório,
 retornando a seguinte saída:
@@ -201,8 +202,8 @@ essa operação irá requerer sua senha.
 
 ## Restaurando o backup
 
-Restaurar a partir de um volume de backup do `duplicity` é bem parecido, mas os
-argumentos são invertidos:
+Restaurar a partir de um volume de backup do `duplicity` é bastante parecido
+com realizar um backup, mas os argumentos são invertidos:
 
     $ duplicity sftp://usuario@backup.exemplo.com.br:backup_docs restaura_docs
     Sincronizando metadados remotos ao cache local...
@@ -249,8 +250,8 @@ incrementais para você. Aqui está um exemplo, salvo em
     # configuração de chave do SSH) 
     eval "$(keychain --eval --quiet)"
     
-    # Especifique um diretório para faze backup, uma ID de chave GnuPG, e um
-    # usuário remoto e hostname
+    # Especifique um diretório para realizar o backup, uma ID de chave GnuPG, e
+    # um usuário remoto e hostname
     keyid=taspargos@exemplo.com.br
     local=/home/tim/Documentos
     remote=sftp://usuario@backup.exemplo.com.br/backup_docs
@@ -296,8 +297,8 @@ Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
 
 - Não se esqueça de testar/restaurar seus backups ocasionalmente para garantir
   que estão funcionando corretamente. Também é aconselhável rodar `duplicity
-  verify` sobre os arquivos ocasionalmente, especialmente se você não realiza o
-  backup todos os dias:
+  verify` contra os arquivos ocasionalmente, especialmente se você não faz
+  backups todos os dias:
 
         $ duplicity verify sftp://usuario@remoto.exemplo.com.br/backup_docs Documentos
         Os metadados remotos e locais estão sincronizados; nenhuma sincronização é necessária.
@@ -306,7 +307,7 @@ Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
         Verificação completa: 2195 files compared, 0 differences found.
 
 - Esse sistema incremental significa que você, provavelmente, terá de fazer
-  backups completos apenas uma vez, portanto você deve copiar muito dados, ao
+  backups completos apenas uma vez, portanto você deve copiar muitos dados, ao
   invés de muito poucos dados; se você pode gastar a banda e tem espaço, copiar
   seu computador inteiro não é tão extremo.
 
@@ -325,7 +326,7 @@ Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
 [duplicity]: http://duplicity.nongnu.org/
 [duplicity_pkg]: http://packages.debian.org/wheezy/duplicity
 [duplicity_man]: http://linux.die.net/man/1/duplicity
-[agentes]: #
+[agentes]: {% post_url 2013-09-30-linux_cripto_agentes %}
 [cron]: http://linux.die.net/man/8/cron
 [crontab_usuario]: http://blog.sanctum.geek.nz/user-cron-tasks/
 [tao_backup]: http://www.taobackup.com/
