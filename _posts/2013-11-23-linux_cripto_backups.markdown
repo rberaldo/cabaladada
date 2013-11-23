@@ -21,33 +21,33 @@ fogo e você perder tanto seu computador quanto o seu meio de backup.
 
 Para a maior parte das pessoas, a maneira mais fácil de fazê-lo é com um
 provedor de armazenamento que ofereça acesso a armazenamento em massa de
-tamanho adequado, mantido nos sistemas de outras companhia, por um preço
-relativamente modesto ou mesmo de graça, como o [Ubuntu One][ubuntu_one] ou o
-[Skydrive][skydrive], da Microsoft. Os melhores provedores também criptografam
-os dados em seus servidores, não importando se eles tem acesso aos dados ou
-não.
+tamanho apropriado para você, mantido nos sistemas de outras companhia, por um
+preço relativamente modesto ou mesmo de graça, como o [Ubuntu One][ubuntu_one]
+ou o [Skydrive][skydrive], da Microsoft. Os melhores provedores também
+criptografam os dados em seus servidores, não importando se eles têm acesso aos
+dados ou não.
 
 Mas confiar todos os seus dados e a criptografia dos mesmos a uma companhia é
 arriscado, particularmente após as recentes revelações de um [conluio
 corporativo com a NSA][conluio_nsa], e usuários preocupados com sua privacidade
-devem preferir a segurança de criptografar seus backups antes de serem enviados
-aos servidores. O provedor pode implementar seus próprios mecanismos de
-criptografia simétrica e/ou fechada, que podem ou não ser confiáveis. Como
-estabelecido, para uma criptografia pessoal bastante robusta, podemos usar
-nossa instalação do GnuPG para criptografar arquivos antes de enviá-los:
+devem preferir a segurança de criptografar seus backups _antes_ de serem
+enviados aos servidores. O provedor pode implementar seus próprios mecanismos
+de criptografia simétrica e/ou fechada, que podem ou não ser confiáveis. Como
+estalecemos anteriormente, para uma criptografia pessoal bastante robusta,
+podemos usar nossa instalação do GnuPG para criptografar arquivos antes de
+enviá-los:
 
     $ tar -cf backup_docs-"$(date +%Y-%m-%d)".tar $HOME/Documentos
     $ gpg --encrypt backup_docs-2013-07-27.tar
     $ scp backup_docs-2013-07-27.tar.gpg usuario@backup.exemplo.com.br:backup_docs
 
 O problema de criptografar arquivos inteiros antes de copiá-los ao servidor de
-armazenamento é que mesmo para dados de tamanho modesto, realizar backups
-completos e fazer upload de todos os arquivos juntos, todas as vezes, pode
-custar muita banda. Da mesma forma, gostaríamos de ser capazes de restaurar
-nossos arquivos tal como eram num dia específico, para o caso de backups que
-não funcionem ou arquivos deletados acidentalmente, porém sem armazenar todos
-os arquivos em todos os dias de backup, o que pode acabar requerendo espaço
-demais.
+armazenamento é que mesmo para dados de tamanho modesto, sempre realizar
+backups completos e sempre enviar todos os arquivos juntos pode custar muita
+banda. Da mesma forma, gostaríamos de ser capazes de restaurar nossos arquivos
+tal como eram num dia específico, para o caso de backups que não funcionem ou
+arquivos deletados acidentalmente, porém sem armazenar todos os arquivos em
+todos os dias de backup, o que pode acabar requerendo espaço demais.
 
 ## Backups incrementais
 
@@ -61,7 +61,7 @@ para o `rsync(1)`, permitem isso.
 Infelizmente, o Dirvish não criptografa os arquivos nem o conjunto de
 alterações que ele armazena. Precisamos de uma solução de backup incremental
 que calcule e armazene eficientemente as mudanças nos arquivos num servidor
-remoto e que também os criptografe. O [Duplicity][duplicity], uma ferramenta
+remoto e que _também_ os criptografe. O [Duplicity][duplicity], uma ferramenta
 escrita em Python e construída sobre a biblioteca `librsync` se destaca nessa
 tarefa. Ele pode usar nossa configuração de chave assimétrica do GnuPG para a
 criptografia dos arquivos e está disponível em sistemas derivados do Debian no
@@ -198,7 +198,7 @@ One.
 
 Se você desejar, também é possível assinar seus backups, para garantir que não
 foram modificados, mudando `--encrypt-key` para `--encrypt-sign-key`. Note que
-essa operação irá requerer sua senha.
+essa operação exigirá sua senha.
 
 ## Restaurando o backup
 
@@ -240,7 +240,7 @@ arquivos em particular, se precisar:
 Você deve rodar seu primeiro backup interativamente para garantir que ele faz o
 que você precisa mas, quando você estiver confiante que tudo está funcionando
 corretamente, você pode escrever um Bash script simples para rodar backups
-incrementais para você. Aqui está um exemplo, salvo em
+incrementais automaticamente. Aqui está um exemplo, salvo em
 `$HOME/.local/bin/backup-remote`:
 
     #!/usr/bin/env bash
@@ -283,9 +283,9 @@ A linha a seguir roda o script toda manhã, começando às 6:
 Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
 [Tao do Backup][tao_backup]:
 
-- Garanta que seus backups são completados; peça ao `cron` que envie sua saída
+- Garanta que seus backups são concluídos; peça ao `cron` que envie sua saída
   para seu email ou para um arquivo que você cheque pelo menos ocasionalmente,
-  para ter certeza que seus backups estão funcionando. Recomendo altamente usar
+  para ter certeza que seus backups estão funcionando. Altamente recomendo usar
   o email e incluir erros:
 
         MAILTO=voce@exemplo.com.br
@@ -307,14 +307,17 @@ Algumas melhores práticas gerais se aplicam ao nosso caso, consistentes com o
         Verificação completa: 2195 files compared, 0 differences found.
 
 - Esse sistema incremental significa que você, provavelmente, terá de fazer
-  backups completos apenas uma vez, portanto você deve copiar muitos dados, ao
-  invés de muito poucos dados; se você pode gastar a banda e tem espaço, copiar
-  seu computador inteiro não é tão extremo.
+  backups completos apenas uma vez, portanto é melhor copiar dados demais do
+  que dados de menos; se você pode gastar a banda e o espaço, copiar seu
+  computador inteiro não é tão extremo quanto soa.
 
 - Tente não depender demais dos seus backups remotos; veja-os como último
   recurso e trabalhe seguramente e com backups locais tanto quanto puder.
   Certamente, nunca confie em backups como controle de versão; [use o Git para
   isso][git].
+
+Essa entrada é a parte 8 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
