@@ -2,8 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Discos"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
-published: false
+excerpt: O GnuPG oferece uma maneira de criptografar seguramente arquivos individuais num sistema de arquivos, mas para informações ou sistemas de alta segurança, pode ser apropriado criptografar um disco inteiro para mitigar problemas como o cache de arquivos sensíveis em texto plano.
 ---
 
 Essa é o nono post de uma série de dez posts traduzindo o original de Tom
@@ -101,7 +100,7 @@ também irá perguntar a senha:
 
     # cryptsetup luksOpen /dev/sdc1 secreto
 
-Isso feto, o dispositivo de blocos em `/dev/mapper/secreto` pode ser utilizado
+Isso feito, o dispositivo de blocos em `/dev/mapper/secreto` pode ser utilizado
 da mesma maneira que qualquer outro dispositivo; todas as operações de disco
 são abstraídas pelas operações de criptografia. Provavelmente, você irá desejar
 criar um sistema de arquivos nele. No meu caso, criarei um sistema `ext4`:
@@ -129,12 +128,12 @@ criar um sistema de arquivos nele. No meu caso, criarei um sistema `ext4`:
     Writing superblocks and filesystem accounting information: done
 
 Agora, podemos montar o dispositivo normalmente, e os dados colocados no
-recém-criado arquivo de sistemas serão criptografados transparentemente:
+recém-criado sistema de arquivo serão criptografados transparentemente:
 
     # mkdir -p /mnt/secreto
     # mount /dev/mapper/secreto /mnt/secreto
 
-For example, we could store a private GnuPG key on it:
+Podemos, por exemplo, armazenar nossa chave privada do GnuPG:
 
     # cp -prv /home/tim/.gnupg/secring.gpg /mnt/secreto
 
@@ -142,7 +141,7 @@ For example, we could store a private GnuPG key on it:
 
 Podemos obter informações sobre o container LUKS e as especificidades de sua
 criptografia usando o argumento `luksDump` no sistema de blocos subjacente. Ele
-nos monstra o método de criptografia utilizado, nesse caso, `aes-xts-plain64`.
+nos mostra o método de criptografia utilizado, nesse caso, `aes-xts-plain64`.
 
     # cryptsetup luksDump /dev/sdc1
     LUKS header information for /dev/sdc1
