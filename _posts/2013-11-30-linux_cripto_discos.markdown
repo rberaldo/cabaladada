@@ -20,18 +20,18 @@ cache de arquivos sensíveis em texto plano. Possivelmente, o modo mais popular
 de fazê-lo é usar a ferramenta [TrueCrypt][truecrypt], mas o kernel do Linux
 inclui a sua própria solução de criptografia de disco, o `dm-crypt`. Você pode
 tirar proveito dela utilizando uma ferramenta de baixo nível chamada
-`cryptsetup`, ou mais facilmente com o LUKS, o [Linux Unified Key Setup][luks],
+`cryptsetup`, ou mais facilmente com a LUKS, a [Linux Unified Key Setup][luks],
 implementando criptografia com senhas ou arquivos de chave.
 
 Neste exemplo, demonstraremos como criptografar um disco USB, um bom método
 para armazenar seguramente dados realmente sensíveis, como chaves mestras PGP
-que só são necessárias ocasionalmente, ao invés de deixá-la constantemente
-montada num dispositivo conectado à rede. Tenha cuidado, pois essa operação
+que só são necessárias ocasionalmente, ao invés de deixá-las constantemente
+montadas num dispositivo conectado à rede. Tenha cuidado, pois essa operação
 apagará qualquer arquivo existente no disco.
 
 ## Instalação
 
-As ferramentas criptográficas utilizadas pelo `dm-crypt` e pelo LUKS são
+As ferramentas criptográficas utilizadas pelo `dm-crypt` e pela LUKS são
 embutidas no Linux a partir da versão 2.6, mas você talvez tenha de instalar um
 pacote para acessar a interface `cryptsetup`. Em sistemas baseados no Debian,
 ela está disponível no pacote [`cryptsetup`][cryptsetup_deb]:
@@ -89,7 +89,7 @@ do GnuPG ou SSH.
     Verify passphrase:
 
 Esse comando cria um container de criptografia abstrato no disco, que pode ser
-aberto fornecendo a senha correta. Um dispositivo mapeado virtual é fornecido
+aberto fornecendo a senha correta. Um dispositivo virtual mapeado é fornecido
 para criptografar todos os dados escritos a ele transparentemente, com os dados
 criptografados escritos no disco.
 
@@ -178,19 +178,22 @@ Quando terminamos de trabalhar com o dispositivo, devemos desmontar quaisquer
 sistemas de arquivos presentes e, também, fechar o dispositivo mapeado, para
 que a senha seja necessária para reabri-lo:
 
-    # umount /mnt/secret
-    # cryptsetup luksClose /dev/mapper/secret
+    # umount /mnt/secreto
+    # cryptsetup luksClose /dev/mapper/secreto
 
 Se ele também é um dispositivo removível, você também deve considerar a remoção
 física da mídia e colocá-la em algum local seguro.
 
-Esse post apenas arranha a superfície da funcionalidade do LUKS; muitas outras
+Esse post apenas arranha a superfície da funcionalidade da LUKS; muitas outras
 coisas são possíveis com o sistema, incluindo a montagem automática de sistemas
 de arquivos criptografados e o uso de arquivos de chave armazenados ao invés de
 senhas digitadas. O [FAQ do `cryptsetup`][faq] contém uma grande quantidade de
 informações, incluindo considerações sobre a recuperação de dados, e a Arch
 Wiki contém [uma página muito completa][arch_wiki] com muitas outras maneiras
-de usar o LUKS seguramente.
+de usar a LUKS seguramente.
+
+Essa entrada é a parte 9 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
