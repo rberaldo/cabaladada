@@ -2,7 +2,7 @@
 layout: post
 title: "Criptografia no Linux: Importância"
 author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
-excerpt:
+excerpt: "Enquanto esta série estava sendo escrita, a partir de junho de 2013 Edward Snowden começou a vazar documentos ultrassecretos da Agência Nacional de Segurança [National Security Agency — NSA] dos Estados Unidos, demonstrando que a agência era capaz de vigilar a Internet em uma escala massiva."
 ---
 
 Este é o décimo post de uma série de dez posts traduzindo o original de Tom
@@ -13,9 +13,9 @@ Para a lista de posts, veja a [introdução][linux_crypto_intro].
 
 ---
 
-Enquanto esta série de arquivos estava sendo escrita, a partir de junho de 2013
-[Edward Snowden][snowden_wikipedia] começou a vazar documentos ultrassecretos
-da Agência Nacional de Segurança [National Security Agency — NSA] dos Estados
+Enquanto esta série estava sendo escrita, a partir de junho de 2013 [Edward
+Snowden][snowden_wikipedia] começou a vazar documentos ultrassecretos da
+Agência Nacional de Segurança [National Security Agency — NSA] dos Estados
 Unidos, demonstrando que a agência era capaz de vigilar a Internet em uma
 escala massiva com o sistema de vigilância PRISM e usando a interface XKeyscore
 nos dados que acumulara. A notícia de que a vigilância governamental secreta
@@ -25,7 +25,7 @@ deram ao público geral e não técnico uma ideia do quão seriamente os sistema
 proprietários sobre os quais eles haviam construído grande parte de suas vidas
 digitais pode ser usado para prejudicá-los e comprometer sua privacidade.
 
-Pessoas interessadas nos Estados Unidos são bastante conscientes de como o
+Nos Estados Unidos, pessoas preocupadas são bastante conscientes de como o
 abuso secreto do poder de exercer essa vigilância e as fracassadas moções do
 Congresso dos Estados Unidos para cerceá-lo abalaram a confiança em seu próprio
 governo. No entanto, as implicações dos vazamentos são também internacionais.
@@ -65,10 +65,10 @@ propósitos criptográficos. Um mundo no qual uma agência governamental tentari
 ativamente cercear o uso de tais tecnologias pode parecer inverossímil demais
 para nós — talvez menos para quem se lembra que a [Pretty Good
 Privacy][pgp_wikipedia] foi uma ideia radical que causou ao seu criador e
-ativista, Phil Zimmermann, problemas legais reais.
+ativista, Phil Zimmermann, problemas legais concretos.
 
 Acredito que entusiastas da computação e usuários de sistemas operacionais
-livres, não apenas experts em criptografia, estão numa posição especial para
+livres, não apenas _experts_ em criptografia, estão numa posição especial para
 ajudar seus amigos e familiares preocupados com a defesa de sua privacidade
 online e a segurança de suas comunicações e que, se valorizamos tanto a
 liberdade quanto a segurança da informação, como bons hackers fazem, temos, na
@@ -84,6 +84,9 @@ restrição não apenas impraticável, mas impensável.
 Foundation][fsf] e qualquer um que apoie a liberdade e direito de todos para
 usar a tecnologia segura e privadamente. Espero que qualquer pessoa que leia
 este artigo considere fazer o mesmo.
+
+Essa entrada é a parte 10 de 10 na série [Criptografia no
+Linux][linux_crypto_intro].
 
 [linux_crypto]: http://blog.sanctum.geek.nz/series/linux-crypto/
 [cc]: http://creativecommons.org/licenses/by-nc-sa/3.0/
