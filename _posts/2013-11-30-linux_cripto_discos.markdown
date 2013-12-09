@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: O GnuPG oferece uma maneira de criptografar seguramente arquivos individuais num sistema de arquivos, mas para informações ou sistemas de alta segurança, pode ser apropriado criptografar um disco inteiro para mitigar problemas como o cache de arquivos sensíveis em texto plano.
 ---
 
-Essa é o nono post de uma série de dez posts traduzindo o original de Tom
+Este é o nono post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 

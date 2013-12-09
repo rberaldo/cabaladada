@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: Agora que temos uma configuração cuidadosa do GnuPG, podemos utilizar o pass(1) para gerenciar nossas senhas de modo seguro. Se você ainda não investiu em um método de gerenciamento de senhas, essa pode ser uma boa aplicação inicial para o seu sistema de criptografia e uma ótima abordagem minimalista para o armazenamento seguro de senhas.
 ---
 
-Essa é o sexto post de uma série de dez posts traduzindo o original de Tom
+Este é o sexto post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 

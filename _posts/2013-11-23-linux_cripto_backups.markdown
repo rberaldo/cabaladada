@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: Embora possuir backups locais para a recuperação rápida de dados seja importante, tal como em um disco USB ou num disco rígido vago, é igualmente importante ter um backup externo, a partir do qual você possa restaurar seus documentos importantes se, por exemplo, o seu escritório foi roubado ou pegar fogo e você perder tanto seu computador quanto o seu meio de backup.
 ---
 
-Essa é o oitavo post de uma série de dez posts traduzindo o original de Tom
+Este é o oitavo post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 

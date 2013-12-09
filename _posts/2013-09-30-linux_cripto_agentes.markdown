@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: Agora que o GnuPG e o SSH estão configurados seguramente, podemos criptografar, descriptografar, assinar e verificar mensagens, e autenticar seguramente a servidores remotos sem o risco de expor nossas senhas e com uma possibilidade efetivamente nula de ataques de força bruta. Isso tudo é ótimo, mas ainda existe um elo fraco em nossa corrente com o qual lidar — nossas senhas.
 ---
 
-Essa é o quinto post de uma série de dez posts traduzindo o original de Tom
+Este é o quinto post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 

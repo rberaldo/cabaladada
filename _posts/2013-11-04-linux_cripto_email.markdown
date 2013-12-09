@@ -5,7 +5,7 @@ author: Tom Ryder (autoria) e Rafael Beraldo (tradução)
 excerpt: "Um sistema de armazenamento criptografado de senhas é um bom começo, mas agora que temos uma instalação do GnuPG em funcionamento, devemos considerar o uso do PGP para aquilo que foi originalmente criado: emails. Para isso, usaremos o mutt."
 ---
 
-Essa é o sétimo post de uma série de dez posts traduzindo o original de Tom
+Este é o sétimo post de uma série de dez posts traduzindo o original de Tom
 Ryder, [Linux Crypto][linux_crypto]. Essa série está sob uma licença [Creative
 Commons 3.0][cc].
 
