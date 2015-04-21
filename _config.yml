@@ -1,4 +1,4 @@
 markdown: redcarpet
 permalink: /:year/:title
 lsi: false
-pygments: true
+highlighter: pygments
