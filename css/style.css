@@ -4,7 +4,8 @@ body {
   margin: 0 auto;
   width: 768px;
   font-family: Inconsolata-g,Inconsolata,"Envy Code R",monofur,monospace;
-  background-color:#161616;
+  background: url(/images/binding-dark.png);
+  background-attachment: fixed;
   color:#1FE600;
   font-size: 11pt;
 }
