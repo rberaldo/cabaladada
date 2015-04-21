@@ -9,6 +9,12 @@ body {
   font-size: 11pt;
 }
 
+@media handheld, (max-width: 800px) {
+  body {
+    width: 95%;
+  }
+}
+
 a {
   color:#CD0000;
   text-decoration:none;
@@ -48,7 +54,7 @@ pre {
   line-height: 11pt;
   padding: 5px;
   margin-left: 24px;
-  white-space: pre-wrap; 
+  white-space: pre-wrap;
   border-style: solid;
   border-color: #1FE600;
   border-width: 1px;
@@ -57,7 +63,7 @@ pre {
 }
 
 p code {
-  /* Only apply this to code inside paragraphs, thus p code {} */
+  /* Only apply this to code inside paragraphs, thus p code */
   color: #161616;
   background: #1FE600;
   border-radius: 5px;
@@ -84,7 +90,6 @@ a code:hover {
 }
 
 /* Page title */
-
 h1 {
   font-size: 32pt;
   text-align: center;
@@ -112,12 +117,33 @@ nav ul li a {
   font-weight: bold;
 }
 
+/* Navigation bar for handheld devices */
+@media handheld, (max-width: 800px) {
+  nav {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  nav ul {
+    text-align: center;
+    font-size: 16pt;
+  }
+}
+
 /* A container */
 #container {
   min-height: 128px;
   width: 624px;
   float: right;
   display: block;
+}
+
+@media handheld, (max-width: 800px) {
+  #container {
+    width: 100%;
+    float: clear;
+  }
 }
 
 /* Footer */
@@ -135,6 +161,13 @@ article {
   width: 624px;
   float: right;
   text-align: justify;
+}
+
+@media handheld, (max-width: 800px) {
+  article {
+    width: 100%;
+    float: clear;
+  }
 }
 
 article img {
@@ -166,4 +199,11 @@ img.right {
 
 img {
   max-width: 624px;
+}
+
+@media handheld, (max-width: 800px) {
+  img.center, img.left, img.right, img {
+    width: 100%;
+    float: clear;
+  }
 }
