@@ -36,8 +36,8 @@ Cobrirei os seguintes tópicos:
 - [O gerenciador de senhas `pass(1)`][pass]
 - [Emails criptografados/assinados com PGP usando o `mutt(1)`][mutt]
 - [Backups incrementais e criptografados usando o `duplicity(1)`][duplicity]
-- [Drives USB criptografados usando o LUKS][luks] (30/11)
-- [A importância da criptografia e sua ampla utilização][criptografia_importancia] (6/12)
+- [Drives USB criptografados usando o LUKS][luks]
+- [A importância da criptografia e sua ampla utilização][criptografia_importancia]
 
 Se você já conhece sobre um tópico específico, sinta-se livre para pular para
 os outros artigos.
