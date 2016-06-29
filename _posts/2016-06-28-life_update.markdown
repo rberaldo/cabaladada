@@ -8,9 +8,9 @@ excerpt: Uneventful, ordinary days should be either feared or celebrated. Every 
 Uneventful, ordinary days should be either feared or celebrated. Every major
 change in my life seems to have happened on such days. And this year it was no
 different. It must have been a very lazy Sunday afternoon when I got a message
-from a friend I hadn't spoken to in a long time. We met because we were both
-doing research on computational linguistics back in 2011, under the supervision
-of Bento Silva.
+from [Débora Garcia](https://www.facebook.com/deboradom) a friend I hadn't
+spoken to in a long time. We met because we were both doing research on
+computational linguistics back in 2011, under the supervision of Bento Silva.
 
 I was caught off guard by what she had said: something to the effect that LaTeX
 was indeed a great way of producing documents and I'd been right all along. She
@@ -34,14 +34,14 @@ by car.
 I joined their Slack channel right away and introduced myself. I said I was a
 linguist with a passion for Linux, technology and programming and mentioned
 being a LaTeX user. Right off the bat I was invited to do a workshop on the
-subject. I'll talk more about that experience on a later post.
+subject. I'll talk more about that experience in a later post.
 
 Very soon, I went back to São Carlos for a OpenSanca-promoted [AngularJS
 workshop](https://speakerdeck.com/opensanca/workshop-de-clean-code-angular-and-mocks)
-with Carlos Gomes, who later became a friend. The event was great, jam-packed
-with information about clean code, Angular and mocking concepts. I learned a
-lot that day and I can't thank Carlos or the OpenSanca staff enough for
-putting together such incredible events.
+with Carlos Gomes, who would later become a friend. The event was great,
+jam-packed with information about clean code, Angular and mocking concepts. I
+learned a lot that day and I can't thank Carlos or the OpenSanca staff enough
+for putting together such incredible events.
 
 Since then, I've been able to go to a number of talks and workshops. Among so
 many other things, I learned what a JavaScript framework really is, how to
@@ -58,13 +58,15 @@ months made me come to a few realizations and thoughts:
   Cristofer Sousa, who I've had the chance to work with more closely.
 - Fuck the Silicon Valley. I'm not trying to be offensive here, but we have to
   face the truth. For a while I dreamed of working and doing great things
-  abroad. I still think that would be great, however I realized I was failing
-  to look around and see the opportunity that is all around us. We're _not_
-  living in the US or Europe. It is very hard to emulate their market and
-  infrastructure, so we'll have to make do with what we have at hand instead.
-  In other words, innovating has a different meaning in Brazil: it means
-  achieving higher grounds in ways that make sense for us. I'll try to develop
-  this further in another post, as it's only the germ of an idea.
+  abroad. I still think that would be great, however [Laure
+  Stelmastchuk](https://www.3dhubs.com/s%C3%A3o-carlos/hubs/laure-stelmastchuk),
+  one of the greatest people I met through OpenSanca, made me realize I was
+  failing to look around and see the opportunity that is all around us. We're
+  _not_ living in the US or Europe. It would be impossible to emulate their
+  market and infrastructure, so we'll have to make do with what we have at hand
+  instead. In other words, innovating has a different meaning in Brazil: it
+  means achieving higher grounds in ways that make sense for us. I'll try to
+  develop this further in another post, as it's only the germ of an idea.
 - Finally, this last idea connects with my most important realization. We are
   seeing the onset of a community that I hope grows to the point of no return,
   forever changing the city of São Carlos. May this sense of community that
