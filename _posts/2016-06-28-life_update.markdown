@@ -14,7 +14,7 @@ computational linguistics back in 2011, under the supervision of Bento Silva.
 
 I was caught off guard by what she had said: something to the effect that LaTeX
 was indeed a great way of producing documents and I'd been right all along. She
-had just started writing her PhD thesis, if memory serves my right. Having just
+had just started writing her PhD thesis, if memory serves me right. Having just
 graduated from Unesp, I hadn't used LaTeX in a few months, and I had totally
 forgotten about the time I was advocating its use.
 
