@@ -24,8 +24,8 @@ There was something else annoying me. [WordPress][wordpress]. But don’t get me
 wrong: I love WordPress, and I really recommend it if you’re new to blogging and
 wants something that is robust and customizable. It just wasn’t the right tool
 for me. The upgrades were distressing and, lately, something would often break.
-  Also, my netbook isn’t very powerful, so the admin interface itself was too
-  CPU-consuming. 
+Also, my netbook isn’t very powerful, so the admin interface itself was too
+CPU-consuming.
 
 And then I remembered of jekyll. [dudektria][dudektria] introduced me to
 [jekyll][jekyll] a long time ago. He later would recommend [nanoc][nanoc] over
