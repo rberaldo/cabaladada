@@ -2,3 +2,4 @@ markdown: redcarpet
 permalink: pretty
 lsi: false
 highlighter: pygments
+exclude: ["deploy.sh", "README.markdown"]
