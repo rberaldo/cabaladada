@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rsync -vzcrSLhp --exclude="deploy.sh" ./_site/ pecorino:cabaladada.org
+rsync -vzcrSLhp --exclude="deploy.sh" --chown=rberaldo:www-data ./_site/ pecorino:cabaladada.org
 
 # The options:
 # v - verbose
