@@ -121,10 +121,13 @@ nav ul li a {
 /* Footer */
 footer {
   font-size: 1em;
+  width: 100%;
   clear: both;
-  margin-top: 32px;
+  margin-top: 64px;
   margin-bottom: 8px;
   text-align: center;
+  float: none;
+  display: inline-block;
 }
 
 /* Articles */
