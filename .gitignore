@@ -1,3 +1,4 @@
+.jekyll-cache
 _site
 _drafts
 deploy.sh
