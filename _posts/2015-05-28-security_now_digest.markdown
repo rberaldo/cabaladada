@@ -31,7 +31,7 @@ Why wait any longer? Let's hit the news!
 ## Security Now #509 Digest
 
 ![weakdh.org page screaming at me for not having an up-to-date
-browser.](/images/logjam.png "weakdh.org page screaming at me for not having an
+browser.](/assets/images/logjam.png "weakdh.org page screaming at me for not having an
 up-to-date browser.")
 
 SN #509 can be found at [twit.tv][sn509]. The show notes are over at

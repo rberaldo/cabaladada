@@ -8,7 +8,7 @@ excerpt: In which I talk about how the blog was rebooted, what’s new and the t
 Last month or so I deleted everything I had posted on Cabaladadá so far. For
 more than a month, Business Cat gave the good news to every visitor.
 
-![Business Cat.](/images/cat400.jpg "Business Cat: I need you to stay late
+![Business Cat.](/assets/images/cat400.jpg "Business Cat: I need you to stay late
 tonight. We really have to catch that red dot.")
 
 I finally took a deep breath and decided to start working on the blog again.

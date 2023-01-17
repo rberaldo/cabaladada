@@ -1,3 +1,4 @@
+baseurl: /
 markdown: kramdown
 permalink: pretty
 lsi: false

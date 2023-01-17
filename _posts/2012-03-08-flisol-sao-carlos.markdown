@@ -11,12 +11,12 @@ evento estão a divulgação do software livre e sua filosofia ao público em ge
 a realização de palestras e simplesmente ser uma oportunidade para a comunidade
 local de software livre se encontrar.
 
-![FLISOL 2012](/images/flisol.png "Logo do FLISOL")
+![FLISOL 2012](/assets/images/flisol.png "Logo do FLISOL")
 
 O [evento em São Carlos][flisol-sc] deve acontecer no campus do [Instituto
 Federal][ifsp-sc] de São Carlos, que fica dentro da UFSCar. O FLISOL 2012 São
 Carlos também conta com um [grupo no Google Groups][ggroups] e um [grupo no
-Facebook][facebook]. 
+Facebook][facebook].
 
 Já estou pensando no trabalho que irei enviar, e ainda não me decidi entre LaTeX
 e as humanidades, ou apenas LaTeX na academia, ou ainda LaTeX e noções básicas
@@ -32,7 +32,7 @@ uma surpresa descobrir que haverá uma edição em São Carlos. Nos vemos lá!
 E agora uma imagem dos nossos patrocinadores (uma cortesia de
 [protohiro][protohiro]):
 
-![Cat using Linux](/images/cat_linux.jpg "Gatos naturalmente preferem Linux")
+![Cat using Linux](/assets/images/cat_linux.jpg "Gatos naturalmente preferem Linux")
 
 [flisol]: http://flisol.info/
 [flisol-sc]: http://www.ifspsaocarlos.edu.br/flisol/

@@ -50,7 +50,7 @@ Quando rodamos o `ssh-agent(1)` pela primeira vez, seu comportamento é curioso:
 ele não parece fazer nada além de soltar umas linhas de shell script
 enigmático:
 
-    $ ssh-agent 
+    $ ssh-agent
     SSH_AUTH_SOCK=/tmp/ssh-EYqoH3qwfvbe/agent.28881; export SSH_AUTH_SOCK;
     SSH_AGENT_PID=28882; export SSH_AGENT_PID;
     echo Agent pid 28882;
@@ -175,7 +175,7 @@ Se a variável `SSH_ASKPASS` está atribuída como acima e `DISPLAY` se refere a
 um monitor em funcionamento, um simples aviso gráfico aparecerá, pedindo nossa
 senha:
 
-![ssh-askpass](/images/ssh-askpass.png "ssh-askpass em funcionamento")
+![ssh-askpass](/assets/images/ssh-askpass.png "ssh-askpass em funcionamento")
 
 Esse programa talvez tenha de ser instalado separadamente. Em sistemas
 derivados do Debian, o nome do pacote é [`ssh-askpass`][ssh-askpass-pkg].

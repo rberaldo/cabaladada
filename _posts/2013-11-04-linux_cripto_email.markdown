@@ -107,16 +107,16 @@ comece por `crypt_*` ou `pgp_*`:
 
     # Use o GPGME
     set crypt_use_gpgme = yes
-    
+
     # Assine as respostas para emails já assinados
     set crypt_replysign = yes
-    
+
     # Criptografe as respostas para emails já criptografados
     set crypt_replyencrypt = yes
-    
+
     # Criptografe e assine as respostas para emails já criptografados e assinados
     set crypt_replysignencrypted = yes
-    
+
     # Tente verificar assinaturas automaticamente
     set crypt_verify_sig = yes
 
@@ -150,7 +150,7 @@ envie sua chave pública, ou insira um link em sua mensagem, irei respondê-la
 com outra mensagem criptografada com a sua chave pública, para que você pode
 verificar se tudo está funcionando.
 
-    $ curl http://static.sanctum.geek.nz/thomas-ryder.asc | gpg --import  
+    $ curl http://static.sanctum.geek.nz/thomas-ryder.asc | gpg --import
 
 Você também pode enviar uma mensagem criptografada com a chave pública do
 tradutor desse artigo, [0x2D4BF1D0][rberaldo_key], para
@@ -177,7 +177,7 @@ comportamento como padrão com a seguinte linha em `~/.gnupg/gpg.conf`, onde
 
     encrypt-to 0x1234ABCD
 
-![Tela de Composição do Mutt](/images/mutt-compose.png "Tela de composição do Mutt")
+![Tela de Composição do Mutt](/assets/images/mutt-compose.png "Tela de composição do Mutt")
 
 Quando você enviar a mensagem pressionando `y`, talvez seja necessário
 especificar quais chaves você deseja usar para quais destinatários, se você não
@@ -191,7 +191,7 @@ fornecer, a mensagem será enviada e, caso você tenha se inserido no campo
 cabeçalhos mostrando informações do PGP (se a mensagem foi assinada,
 criptografada ou ambos):
 
-![Tela de Mensagens Enviadas do Mutt](/images/mutt-sent.png "Tela de mensagens enviadas do Mutt")
+![Tela de Mensagens Enviadas do Mutt](/assets/images/mutt-sent.png "Tela de mensagens enviadas do Mutt")
 
 O destinatário será capaz de descriptografar a mensagem usando sua chave
 privada, e ninguém mais além de vocês dois poderá lê-la. Note que isso funciona

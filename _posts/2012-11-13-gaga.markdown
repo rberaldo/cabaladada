@@ -45,4 +45,4 @@ store for me, and it couldn't be better.
 
 Thank you, Amanda, and may we be forever young!
 
-![we](/images/we.png)
+![we](/assets/images/we.png)

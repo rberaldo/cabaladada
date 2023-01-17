@@ -13,14 +13,14 @@ científicos da [ABNT][abnt].
 O projeto abnTeX (_ABsurd Norms for TeX_) não recebia contribuições ao código
 desde 2006, no entanto, o que o tornava desatualizado em relação às normas da
 ABNT. Além disso, o código tinha alguns bugs e incompatibilidades com outros
-pacotes. 
+pacotes.
 
 Por isso, foi com grande felicidade que descobri o projeto [abnTeX2][abntex2],
 liderado pelo [Lauro César][lcesar], da UnB. O novo pacote para LaTeX é baseado
 na classe `memoir`, a minha preferida, e uma das classes mais completas para o
 LaTeX.
 
-![Logo do abnTeX2](/images/marca_abntex-2.png "Logo do abnTeX2")
+![Logo do abnTeX2](/assets/images/marca_abntex-2.png "Logo do abnTeX2")
 
 Para instalar o pacote no Arch Linux usando o `yaourt`, rode:
 

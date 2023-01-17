@@ -25,11 +25,11 @@ centralizadas. Mas o que aconteceria com todas as suas fotos se o Flickr
 sumisse? E com os seus vídeos, se o YouTube deixasse de existir?
 
 <video
-width="624"
+width="100%"
 height="360"
 controls="controls"
 preload="metadata"
-poster="/images/campaign/support_mediagoblin-poster.png"
+poster="/assets/images/campaign/support_mediagoblin-poster.png"
 data-setup="">
 <source src="http://7236508364c37fa9e75f-06885409aae278cdc67155c04400e3f7.r71.cf1.rackcdn.com/mediagoblin_campaign_pitch-small.webm"
 type="video/webm; codecs=&quot;vp8, vorbis&quot;" />
@@ -55,7 +55,7 @@ Como muitas coisas no mundo real, a tendência parece ser a descentralização e
 divisão dos recursos. A educação e uso do software livre tem um papel central
 nesse futuro e é legal saber que já estamos nos preparando.
 
-![Gatos jogando ping pong.](/images/gatos_pingpong.gif "Gatos jogando ping
+![Gatos jogando ping pong.](/assets/images/gatos_pingpong.gif "Gatos jogando ping
 pong.")
 
 [fsf-blog]: http://www.fsf.org/blogs/community/gnu-mediagoblin-offers-what-youve-been-missing-in-an-internet-media-sharing-system
