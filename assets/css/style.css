@@ -63,6 +63,14 @@ p code {
   padding: 0 2px 0px 2px;
 }
 
+li code {
+  /* Only apply this to code inside list items */
+  color: #161616;
+  background: #1FE600;
+  border-radius: 5px;
+  padding: 0 2px 0px 2px;
+}
+
 a code {
   /* Only apply this to code that is a hyperlink */
   color: #161616;
